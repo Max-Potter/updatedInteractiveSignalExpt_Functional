@@ -1,0 +1,16 @@
+uid,totalBonus
+123123333,0
+uid,totalBonus
+105142560,0
+uid,totalBonus
+,0
+uid,totalBonus
+,0
+uid,totalBonus
+605150152,0
+uid,totalBonus
+123456789,0
+uid,totalBonus
+405155612,0
+uid,totalBonus
+,0

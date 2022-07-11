@@ -1,0 +1,515 @@
+
+
+body {
+    background-color: #f9f9f9;
+    font-family: "Open Sans", sans-serif;
+    font-family: "Work Sans", sans-serif;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.pageBox{
+    display: none;
+}
+
+/*
+ ### #     #  #####  ####### ######
+  #  ##    # #     #    #    #     #
+  #  # #   # #          #    #     #
+  #  #  #  #  #####     #    ######
+  #  #   # #       #    #    #   #
+  #  #    ## #     #    #    #    #
+ ### #     #  #####     #    #     #
+
+*/
+#instrBox, #lastPageBox {
+    position: relative;
+    width: 50%;
+    left: 50%;
+    transform: translate(-50%, 100px);
+}
+
+#instrText, #thankText {
+    display: block;
+    position: relative;
+}
+
+#examGrid {
+    display: none;
+    margin: auto;
+    margin-bottom: 60px;
+    width: 45%;
+    height: auto;
+}
+
+#consent {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    left: 50%;
+    transform: translate(-50%, 10px);
+    margin-bottom: 20px;
+}
+
+#rewardInInstrQuiz, #stepCostInInstrQuiz {
+    margin: 0px;
+    display: inline-block;
+}
+
+
+/*
+ ####### #     # ######  #######
+ #        #   #  #     #    #
+ #         # #   #     #    #
+ #####      #    ######     #
+ #         # #   #          #
+ #        #   #  #          #
+ ####### #     # #          #
+
+*/
+
+#tryMoveBox, #trySayBox, #sanityCheckBox, #practiceExptBox, #exptBox {
+    position: absolute;
+    width: 1000px;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    top: 50px;
+}
+
+#tryMoveBoard, #trySayBoard, #sanityCheckScoreBoard, #practiceScoreBoard, #scoreBoard {
+    display: flex;
+    background: linear-gradient(180deg, #F9F9F9 0%, rgba(255, 255, 255, 0.5) 100%), #BCBAB8;
+    border: 2px solid rgb(98, 87, 87, 0.5);
+    box-sizing: border-box;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-left: 50px;
+}
+
+#tryMoveBoard .info, #trySayBoard .info, #sanityCheckScoreBoard .info, #practiceScoreBoard .info, #scoreBoard .info {
+    display: inline-block;
+    width: 235px;
+}
+
+.hiddenInfo {
+    opacity: 0;
+}
+
+#tryMoveBoard p, #trySayBoard p, #sanityCheckScoreBoard p, #practiceScoreBoard p, #scoreBoard p {
+    position: relative;
+    display: inline;
+    top: 8px;
+}
+
+#tryMoveBoard img, #trySayBoard img, #sanityCheckScoreBoard img, #practiceScoreBoard img, #scoreBoard img {
+    display: inline-block;
+    top: 10px;
+    padding: 0px;
+}
+
+.tryVerticalAxis, #sanityCheckVerticalAxis, #practiceVerticalAxis, #verticalAxis {
+    position: relative;
+    display: inline-block;
+    letter-spacing: 3px;
+}
+
+.tryVerticalAxis p, #sanityCheckVerticalAxis p, #practiceVerticalAxis p, #verticalAxis p {
+    padding: 6px;
+    margin: 0px;
+}
+
+#bufferContainer {
+    display: none;
+}
+
+#exptImg {
+    display: block;
+    width: 400px;
+    height: 400px;
+}
+
+.tryExptInstr, #sanityCheckInstr, #practiceExptInstr, #exptInstr {
+    display: inline-block;
+}
+
+#exptResultBox, #exptWaitText {
+    text-align: center;
+    width: 100%;
+}
+
+.shape {
+    max-width: 40px;
+    height: 40px;
+    padding: 5px;
+    position: relative;
+}
+
+.inlineShape {
+    position: relative;
+    height: 30px;
+    padding: 0px;
+}
+
+.people {
+
+        max-width: 40px;
+        height: 40px;
+        padding: 5px;
+}
+
+.gridItem, .gridEmpty{
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.gridItem:hover .gridItemInfo {
+    display: block;
+}
+
+.gridItemInfo {
+    display: none;
+    position: relative;
+    z-index: 1;
+    left: 55px;
+    top: -40px;
+    height: 115px;
+    width: 160px;
+    padding-top: 10px;
+    border: solid grey 2px;
+    border-radius: 4px;
+    background-color: #e8e8e8;
+}
+
+.gridItemInfo p {
+    margin: 5px 0px;
+}
+
+.gridItemInfo img {
+    padding: 0px;
+}
+
+.tryColumn, .column {
+    float: left;
+    top: 30px;
+}
+
+.tryHorizontalAxis, #sanityCheckHorizontalAxis, #practiceHorizontalAxis, #horizontalAxis {
+    position: absolute;
+    left: 5%;
+    top: 610px;
+    letter-spacing: 17px;
+}
+
+/* Left column */
+#tryMoveGridContainer, #trySayGridContainer, #sanityCheckGridContainer, #practiceGridContainer, #gridContainer {
+    position: relative;
+    background-color: black;
+    border: 2px solid black;
+    display: inline-grid;
+    grid-gap: 2px;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+}
+/* Right column */
+.tryColumn.text, .column.text {
+    margin-left: 20px;
+    position: relative;
+    width: 40%;
+}
+/*
+#score {
+    display: inline-block;
+    margin: 0px;
+}*/
+
+.trySay, #sanityCheckSay, #practiceSay, #say {
+    position: absolute;
+    top: 0px;
+}
+
+.tryDo, #sanityCheckDo, #practiceDo, #do {
+    position: absolute;
+    top: 200px;
+}
+
+#tryMoveMoveBut, #sanityCheckMoveBut, #exptMoveBut {
+    margin: 0px 10px;
+}
+
+#sanityCheckQuit, #practiceQuit, #quit {
+    position: absolute;
+    top: 280px;
+}
+
+#sanityCheckQuitText, #sanityCheckQuitBut, #practiceQuitText, #practiceQuitBut, #quitText, #quitBut {
+    display:inline-block;
+}
+
+.tryDecision, #sanityCheckDecision, #practiceDecision, #decision {
+    padding-top: 20px;
+    border-top: 2px solid;
+    position: absolute;
+    top: 350px;
+    width: 450px;
+}
+
+.tryResult, #sanityCheckResult, #practiceResult, #result, #sanityCheckResultDo, #resultDo {
+    display: none;
+    position: absolute;
+    padding: 20px;
+    background: rgba(98, 87, 87, 0.95);
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    color: #F9F9F9;
+}
+
+.tryResult {
+    height: 280px;
+    width: 40%;
+}
+
+#sanityCheckResult,#sanityCheckResultDo  {
+    width: 40%;
+}
+
+#practiceResult, #result, #resultDo {
+    /*height: 530px;*/
+    width: 40%;
+}
+
+.tryResultText, #sanityCheckResultText, #practiceResultText, #resultText, #sanityCheckResultTextDo, #resultTextDo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.tryResult .title, #sanityCheckResult .title, #practiceResult .title, #result .title, #sanityCheckResultDo .title, #resultDo .title {
+    float: left;
+    width: 70%;
+    position: relative;
+    display: inline-block;
+    left: 20px;
+    margin: 0px;
+}
+
+.tryResult .data, #sanityCheckResult .data, #practiceResult .data, #result .data, #sanityCheckResultDo .data, #resultDo .data {
+    float: left;
+    width: 30%;
+    position: relative;
+    display: inline-block;
+    text-align: right;
+    right: 20px;
+    margin: 0px;
+}
+
+.tryResult .tryScoreThisRoundBox .title, .tryResult .tryScoreThisRoundBox .data, #sanityCheckResult, #sanityCheckResultDo, #sanityCheckRoundBonusBox .title, #sanityCheckResult #sanityCheckRoundBonusBox .data, #sanityCheckResultDo #sanityCheckRoundBonusBox .data, #practiceResult #practiceRoundBonusBox .title, #practiceResult #practiceRoundBonusBox .data, #result #exptRoundBonusBox .title, #result #exptRoundBonusBox .data, #resultDo #exptRoundBonusBox .data, #resultDo #exptRoundBonusBox .title {
+    border-top: 1px solid;
+    margin: 10px 0px;
+}
+.tryResult .tryTotalScoreBox .title, .tryResult .tryTotalScoreBox .data, #practiceTotalBonusBox .title, #practiceTotalBonusBox .data {
+    margin: 20px 0px 90px;
+}
+
+#sanityCheckResult #sanityCheckTotalBonusBox .title, #sanityCheckResult, #sanityCheckResultDo #sanityCheckTotalBonusBox .title, #sanityCheckResultDo, #sanityCheckTotalBonusBox .data {
+    margin: 20px 0px 20px;
+}
+
+#totalBonusBox .title, #totalBonusBox .data {
+    margin: 20px 0px 0px;
+}
+
+#totalBonusBox .title, #totalBonusBox .data {
+    margin: 0px 0px 30px;
+    font-weight: bold;
+}
+
+.top {
+    max-width: 80px;
+    height: 40px;
+    padding: 5px;
+    position:relative;
+    top: -55px;
+}
+
+#instrQWarning {
+    margin: 20px;
+}
+
+/*
+ ######  #     # ####### ####### ####### #     #
+ #     # #     #    #       #    #     # ##    #
+ #     # #     #    #       #    #     # # #   #
+ ######  #     #    #       #    #     # #  #  #
+ #     # #     #    #       #    #     # #   # #
+ #     # #     #    #       #    #     # #    ##
+ ######   #####     #       #    ####### #     #
+
+*/
+
+.butNext, .butExpt {
+    background-color: #9D8F8F;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.butNext:hover {
+    background: #625757;
+    color: #f9f9f9;
+}
+
+.butNext:active {
+    box-shadow: 0px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+}
+
+#tryMoveResultBut, #trySayResultBut, #sanityCheckResultBut, #practiceResultBut, #resultBut, #resultButDo, #sanityCheckResultButDo {
+    margin-left: 50%;
+    transform: translate(-50%, 0px);
+    margin-top: 40px;
+}
+
+#instrNextBut, #lastPage button {
+    position: absolute;
+    display: inline-block;
+    right: 0px;
+    top: 600px;
+}
+
+#instrBackBut {
+    position: absolute;
+    display: inline-block;
+    left: 0px;
+    top: 600px
+}
+
+#instrQBut {
+    display: inline;
+    margin-left: 50%;
+    transform: translate(-50%, 0px);
+}
+
+.butExpt {
+    display: inline-block;
+    margin: 10px;
+    width: 100px;
+}
+
+.butExpt:hover {
+    background: #625757!important;
+    color: #f9f9f9;
+}
+
+.butExpt:active {
+    box-shadow: 0px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+}
+
+/*
+
+ ######  ####  #####  #    #
+ #      #    # #    # ##  ##
+ #####  #    # #    # # ## #
+ #      #    # #####  #    #
+ #      #    # #   #  #    #
+ #       ####  #    # #    #
+
+*/
+
+#quizBox {
+    /*background-color: aliceblue;*/
+    border-color: #625757;
+    border-style: solid;
+    border-width: 1px;
+    color: black;
+    margin: 0px auto;
+    /* padding: 10px; */
+}
+
+.option {
+    position: relative;
+    margin: auto;
+    padding: 5px;
+    /* padding: 10px; */
+    /*text-align: justify;*/
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: gray;
+}
+
+.optionRadio {
+    position: absolute;
+    margin: 0;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.optionText {
+    position: relative;
+    left: 40px;
+    width: calc(100% - 60px);
+}
+
+#questionsBox {
+    position: relative;
+    width: 60%;
+    left: 50%;
+    transform: translate(-50%, 100px);
+}
+
+#questionsBox textarea {
+    width: 100%;
+}
+
+#questionsBox .option {
+    padding: 0px;
+}
+
+.smallDimText {
+    font-size: 15px;
+    line-height: 30px;
+    margin-top: -10px;
+}
+
+#age {
+    width: 100%;
+}
+
+#questionsBox button {
+    margin-left: 50%;
+    transform: translate(-50%, 0px);
+    margin-bottom: 50px;
+}
+
+#rating label, #motivation label {
+    display: inline-block;
+    width: 19%;
+}
+
+#rating .optionText, #motivation .optionText {
+    left: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+#rating .optionRadio, #motivation .optionRadio {
+    top: 150%;
+    left: 50px;
+}
+
+/* #uidPage, #lastPage {
+    display: none;
+    position: relative;
+    width: 60%;
+    left: 50%;
+    transform: translate(-50%, 100px);
+} */
+

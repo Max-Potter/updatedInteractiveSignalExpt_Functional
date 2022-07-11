@@ -1,0 +1,23 @@
+subjId;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+undefined;undefined;18:25:54;sanCheck;0;1;say;triangle;N/A;(4,0);noChange;(3,7)(3,6)(3,5);(3,5);green triangle;false;true;0.25;5.231;13.066;16.451999999999998;false
+undefined;undefined;18:25:54;sanCheck;1;4;say;triangle;N/A;(4,0);noChange;(5,7)(6,7)(6,8);(6,8);purple triangle;false;false;0.09999999999999998;10.463;6.486000000000002;11.915999999999999;false
+undefined;undefined;18:25:54;sanCheck;2;5;say;green;N/A;(4,0);noChange;(4,8)(5,8)(6,8)(7,8);(7,8);green circle;false;true;0.3;8.324;6.605;9.168999999999999;false
+undefined;undefined;18:25:54;sanCheck;3;8;do;N/A;(5,0)(6,0)(7,0)(7,1)(7,2)(7,3);(7,3);red square;N/A;(4,7);noChange;true;false;0.39999999999999997;1.523;3.535;2.2649999999999997;false
+undefined;undefined;18:25:54;sanCheck;4;7;do;N/A;(3,0)(2,0);(2,0);green triangle;N/A;(4,7);noChange;true;false;0.7;1.382;1.51;2.215;false
+undefined;undefined;18:25:54;sanCheck;5;2;say;red;N/A;(4,0);noChange;(5,7)(6,7)(7,7)(8,7);(8,7);red circle;false;false;0.49999999999999994;1.768;2.6720000000000006;3.4769999999999994;false
+undefined;undefined;18:25:54;sanCheck;6;6;say;triangle;N/A;(4,0);noChange;(4,8)(4,9)(3,9)(2,9)(1,9)(0,9);(0,9);purple triangle;false;true;0.5999999999999999;4.002;3.8890000000000002;4.982;false
+undefined;undefined;18:25:54;sanCheck;7;3;say;circle;N/A;(4,0);noChange;(3,7)(2,7)(2,8)(2,9);(2,9);green circle;false;false;0.39999999999999986;8.808;3.4429999999999996;9.966000000000001;false
+undefined;undefined;18:25:54;sanCheck;8;0;say;circle;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(1,6);(1,6);red circle;false;true;0.5999999999999999;9.095;6.747;10.178;false
+subjId;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+undefined;undefined;18:39:03;sanCheck;0;2;do;N/A;(4,1)(4,2)(3,2)(2,2)(2,3)(2,4)(2,5)(2,6)(2,7)(2,8)(2,9)(3,9)(4,9);(4,9);red square;N/A;(4,7);noChange;true;false;0;1.748;7.063999999999999;2.477000000000001;false
+undefined;undefined;18:39:03;sanCheck;1;8;do;N/A;(5,0)(6,0)(7,0)(7,1)(7,2)(7,3);(7,3);red square;N/A;(4,7);noChange;true;false;0.09999999999999998;9.182;5.288;11.323999999999998;false
+undefined;undefined;18:39:03;sanCheck;2;5;say;green;N/A;(4,0);noChange;(4,8)(5,8)(6,8)(7,8);(7,8);green circle;false;true;0.3;2.101;4.749;2.684;false
+undefined;undefined;18:39:03;sanCheck;3;0;say;circle;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(1,6);(1,6);red circle;false;true;0.5;5.016;4.2059999999999995;5.768000000000001;false
+undefined;undefined;18:39:03;sanCheck;4;3;say;purple;N/A;(4,0);noChange;(4,6)(5,6)(6,6)(7,6);(7,6);purple circle;false;true;0.7;3.46;7.452000000000001;11.097999999999999;false
+undefined;undefined;18:39:03;sanCheck;5;1;say;triangle;N/A;(4,0);noChange;(3,7)(3,6)(3,5);(3,5);green triangle;false;true;0.95;4.093;3.7510000000000003;4.8999999999999995;false
+undefined;undefined;18:39:03;sanCheck;6;7;do;N/A;(3,0)(2,0);(2,0);green triangle;N/A;(4,7);noChange;true;false;1.25;1.406;1.5130000000000001;2.123;false
+undefined;undefined;18:39:03;sanCheck;7;4;say;square;N/A;(4,0);noChange;(4,8)(4,9)(5,9)(6,9);(6,9);red square;false;false;1.05;1.816;5.277;5.2909999999999995;false
+undefined;undefined;18:39:03;sanCheck;8;6;say;triangle;N/A;(4,0);noChange;(4,8)(4,9)(3,9)(2,9)(1,9)(0,9);(0,9);purple triangle;false;true;1.15;3.56;4.715;6.941000000000001;false
+subjID;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+16;2021-05-19;18:56:45;sanity;0;1;say;triangle;N/A;(4,0);noChange;(3,7)(3,6)(3,5);(3,5);green triangle;false;true;0.25;24.146;8.830999999999996;25.213;false
+16;2021-05-19;18:56:45;sanity;1;4;say;triangle;N/A;(4,0);noChange;(5,7)(6,7)(6,8);(6,8);purple triangle;false;false;0.09999999999999998;12.816;4.8420000000000005;14.246;false

@@ -1,0 +1,2 @@
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;serious;strategy;problems;rating;motivation;inView;viewportW;viewportH
+6,2021-05-29,00:15:24,8080,00:26:42,11.3082,1,T,just get the least amount of steps,very clear!,4,1,true,1426,677

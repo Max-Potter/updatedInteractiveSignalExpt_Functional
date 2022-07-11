@@ -1,0 +1,66 @@
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+1,2022-01-15,09:56:18,8801,10:00:25,4.11735,undefined,n/a,i still used the same strategy from part one when i could, but there were significantly less opportunities in part two to use it,true,1512,761
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+2,2022-01-16,01:05:29,8921,01:08:34,3.088966666666667,undefined,Guessing,This one is harder.,true,1440,789
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+3,2022-01-16,01:08:11,8767,01:19:41,11.49705,undefined,I focused on which potential target my partner was closest to if they didn't go to it. For example, if they were closer to an orange triangle than I was and didn't go to it (which I am making the assumption that they would go to it if it was the target & they were closer to minimize our moves), I would pay attention to this. Continuing this example, if the hint they gave me was "Square," then I would assume that they were directing me to go to the green square because if they wanted me to go to the orange square it would have been more logical to give me the hint "Orange." ,Slightly. I noticed that my partner was not moving towards any targets and there were 4 target options instead of 3 so I had to adjust how I approached the game.,true,1440,704
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+4,2022-01-16,02:48:18,8837,02:53:07,4.815783333333333,undefined,The same as I previously described. I chose the depicted target that required the least number of steps for I and my partner. ,I wouldn't say it was any different. ,true,1488,762
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+5,2022-01-16,06:11:07,8845,06:17:23,6.275266666666667,undefined,First, I chose the shape that matched my partner's description that was the least far away from my partner and I. If both shapes matched the description and were equal distance away, I chose the shape/color of it's partner shape that was the least distance away from my partner and I.  ,Yes, because if both shapes were equal distance away from my partner and I in part one of the experiment, I would just choose the one with a partner shape as opposed to the odd one out. ,true,1106,602
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+6,2022-01-16,21:34:31,8751,21:39:41,5.163,undefined,I chose the one based off the one closest to my partner. If he said the same shape as the one closest to him/her, I chose the same shape but the one in the other color/farther. If he chose the same color as the one closest to him/her, I chose the same color but different shape. ,Yes, I based it entirely off the fact that if he/she could walk to it, he would so I chose based off that. ,true,1440,821
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+7,2022-01-17,02:10:33,8757,02:18:56,8.3902,undefined,I eliminated the shape closest to my partner because if that was the target shape, my partner would have just walked to it.  I then applied the same strategy I used in the first part of the experiment to the three remaining shapes.  ,My strategy was very similar to the one in part one of the experiment.  ,true,1620,929
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+8,2022-01-17,08:19:23,8795,08:47:54,28.520316666666666,undefined,I just chose the object on the grid that fit the characteristic that my partner signaled. ,No, my strategy was basically the same. Since it was four objects, it took me longer to decide between the two objects with the same characteristic. ,true,1440,789
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+9,2022-01-17,17:45:25,8872,17:48:36,3.178366666666667,undefined,Picked the farthest away from my partner while still accurately using clues.,No,true,1139,884
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+10,2022-01-17,23:11:00,8730,23:14:33,3.5477666666666665,undefined,i tried to use the same strategy from before.,it was not different, and it didn't work well,true,1440,789
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+11,2022-01-18,02:49:14,8776,02:54:16,5.035066666666666,undefined,I eliminated the color that was closest to the participant when they stated the shape and I eliminated the shape that was closest to the participant when they stated the color. ,It was because I had to take into account that there were now 4 objects instead of only 3. ,true,1440,789
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+12,2022-01-18,04:14:01,8799,04:17:24,3.3737833333333334,undefined,it was the same as before, except it was more random, there were a few that I did not pay attention to the number of steps,no it was not,true,1237,749
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+13,2022-01-18,06:53:13,8915,06:58:39,5.43915,undefined,Since it was a 50/50 decision, I selected the object that was closest in steps to my partner and me so we walked less. If the distance was the same then I randomly chose.,I wasn't able to use the process of elimination in this part so my selection was pretty much random.,true,1280,720
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+14,2022-01-18,10:33:00,8748,10:37:06,4.0896333333333335,undefined,closet one from hint,n'a,true,1432,740
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+15,2022-01-18,18:21:26,8868,18:25:33,4.1104,undefined,Looking at the steps.,Not really, but I had to guess more often.,true,1300,629
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+16,2022-01-18,20:38:05,8882,20:47:57,9.86165,undefined,I followed whatever my partner said and chose the one furthest from my partner.,There were 4, instead of 3, and I couldn't eliminate one choice,true,1020,720
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+17,2022-01-18,23:35:41,8796,23:38:33,2.85455,undefined,Same as before, I chose the one that tasked him with the least amount of squares to talk to.,No.,true,1440,820
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+18,2022-01-19,03:36:17,8848,03:39:16,2.9906333333333333,undefined,Use the clue he gave me to choose which of the ones I was closer to and choose that one.,n/a,true,1368,769
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+19,2022-01-19,20:20:01,8879,20:27:11,7.16225,undefined,I just thought that if I could come up with a better way to explain one of the targets my partner was describing than it must be the other one.,I will say that I had less confidence that my partner was actually trying to help me during this experiment. There must have been a better way to describe the targets at a couple of points. This led to more guessing.,true,1280,609
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+20,2022-01-19,23:32:46,9032,23:36:04,3.2879833333333335,undefined,picking the closest possible target that fit the criteria,no,true,1077,687
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+21,2022-01-19,23:43:20,8912,23:48:14,4.887816666666667,undefined,My strategy was the same for this task and the last task. ,My strategy was the same for this task and the last task. ,true,1440,789
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+22,2022-01-20,02:43:35,9033,02:46:55,3.3352,undefined,Choosing the shortest disntance,No,true,1536,722
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+23,2022-01-20,21:36:18,8909,21:40:31,4.210916666666667,undefined,I would choose the option that was closest to my partner AND lined up with their hint OR if the 2 options for the hint were on the same plane than I would choose the one that was the same color as the color closest to my partner,No. I just added a part because there were more options for the target this time.,true,1000,834
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+24,2022-01-20,23:01:36,8732,23:07:26,5.8177,undefined,i was guessing most of the time between the two clear choices.,no i used the same strategy but it was harder.,true,1180,752
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+25,2022-01-22,04:38:18,9025,04:41:53,3.583,undefined,obviously, first whatever trait was described, then just going to one at random, usually the one closer to me. However, I avoided picking any that were closer to my partner than me,A lot more guesswork due to all choices being closer to me than my partner,true,1690,807
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+26,2022-01-23,00:56:35,8755,01:00:42,4.116466666666667,undefined,if the hint was a color, I'd pick the closest shape of the same color. If the hint was a shape, I'd pick the closest same shape.,My strategy was more random since there were 4 shapes this time. I also used proximity more often.,true,1707,948
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+27,2022-01-23,19:59:36,8834,20:03:47,4.178766666666666,undefined,I wen't to the closest one. ,I was confused because there was two of each. ,true,1238,725
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+28,2022-01-23,21:28:28,8902,21:31:46,3.2914833333333333,undefined,closest to partner or right visual field because he/she is telling me a color or shape and the right visual is correlated with speech/ language ,My strategy was the same ,true,1423,678
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+29,2022-01-23,22:15:08,9027,22:26:59,11.840616666666667,undefined,assuming that I go to the closest target with described feature, eliminating targets based on whether target(s) with same described feature is closer to partner, preventing myself from thinking and analyzing the situation for too long by reminding myself that my partner knows what's going on and is providing hints with our best interest in mind, reminding myself that I don't need to think too hard about this because I don't know which target is the correct target. I was never told which target was the correct target by the end of each round.,I used similar strategies that I used for part one, but this time I added more to the strategies that I used for round one. ,true,1920,937
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+30,2022-01-23,23:03:00,8750,23:07:38,4.619166666666667,undefined,I didn't really have one here. The addition of one more shape in each color made things slightly more confusing. ,No, I essentially had the same method. ,false,1280,569
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+31,2022-01-24,01:50:59,8773,01:56:19,5.33305,undefined,Using the closest object as a frame of reference, I would use that to inform my decision. For example, if my partner says triangle, I am going to the furthert triangle, because it would be faster for them to travel to the triangle near them.,It drew on similar principles because of the proximity but this round was much more difficult.,true,1440,820
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+32,2022-01-24,05:15:11,8895,05:18:12,3.012033333333333,undefined,I had the same strategy for solving this task as the first part of the experiment.,My strategy was not any different from part one.,true,1280,712
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;strategy;difference;inView;viewportW;viewportH
+33,2022-01-24,05:37:12,8770,05:42:05,4.882133333333333,undefined,I would click the shape that is closest to both my person and the other player. ,yes, because there were more shapes. ,true,1260,723

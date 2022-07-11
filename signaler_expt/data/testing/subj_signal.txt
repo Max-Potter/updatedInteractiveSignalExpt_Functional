@@ -1,0 +1,18 @@
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;serious;strategy;problems;rating;motivation;inView;viewportW;viewportH
+1;2021-05-19;21:21:16;123;21:21:28;0.19665;undefined;0;haha;wawaw;5;5;false;913;789
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;serious;strategy;problems;rating;motivation;inView;viewportW;viewportH
+2;2021-05-19;21:23:40;123;21:23:59;0.31535;undefined;0;nothing;none;5;5;false;913;789
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;serious;strategy;problems;rating;motivation;inView;viewportW;viewportH
+22;2021-05-20;12:56:47;903;13:01:48;5.0153;undefined;T;if the target was close to the other player and the shape/color was unambiguous compared all possible targets surround him/her, I sent message. If the situation is ambiguous or the target is close to me, I went get it. If the situation is ambiguous but the target is way too far from, I took the risk and sent a message.;At first I was confused whether the other player is able to see the shape and color of the target. Also I didn't know how many trials I played in the experiment session.;3;4;true;1280;632
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;serious;strategy;problems;rating;motivation;inView;viewportW;viewportH
+24;2021-05-21;00:10:21;904;00:17:30;7.160166666666667;undefined;T;try to predict what my partner would do if I do this;No, instructions and the display are both great!!;5;4;true;2048;1102
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;serious;strategy;problems;rating;motivation;inView;viewportW;viewportH
+27;2021-05-21;21:25:31;0923;21:27:26;1.9182;undefined;T;I thought about what the shortest way was to get to the target for each round and moved accordingly.;No :);4;3;true;1368;770
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;serious;strategy;problems;rating;motivation;inView;viewportW;viewportH
+30;2021-05-23;19:13:12;902;19:13:59;0.7946333333333333;undefined;T;Counterfactual thinking ;No;4;5;true;1059;737
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;serious;strategy;problems;rating;motivation;inView;viewportW;viewportH
+32;2021-05-24;07:51:41;904;07:54:35;2.90385;undefined;T;Signal partner when it's more advantageous for the partner to go;the first practice shows the ideal way is to send the "signal undefined";5;3;true;1666;855
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;serious;strategy;problems;rating;motivation;inView;viewportW;viewportH
+34;2021-05-24;09:51:04;901;09:51:39;0.5859;undefined;T;Pick the least frequent characteristic;No;4;3;true;1440;789
+subjNum;startDate;startTime;id;endTime;duration;instrQAttemptN;serious;strategy;problems;rating;motivation;inView;viewportW;viewportH
+36;2021-05-24;18:10:53;900;18:12:34;1.6757;undefined;T;If a signal will confuse the receiver, I will go to the goal myself.;I was not sure how many trials I completed and how many trials were remaining, I kept forgetting how much money I have earned so far. ;4;4;true;2560;1249

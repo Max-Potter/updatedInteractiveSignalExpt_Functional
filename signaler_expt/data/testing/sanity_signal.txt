@@ -1,0 +1,121 @@
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+7;2021-05-19;22:00:09;sanity;0;2;say;red;N/A;(4,0);noChange;(5,7)(6,7)(7,7)(8,7);(8,7);red circle;false;false;0;3.934;4.036;5.412000000000001;false
+7;2021-05-19;22:00:09;sanity;1;8;do;N/A;(5,0)(6,0)(7,0)(7,1)(7,2)(7,3);(7,3);red square;N/A;(4,7);noChange;true;false;0.09999999999999998;7.905;3.5360000000000005;8.729;false
+7;2021-05-19;22:00:09;sanity;2;5;do;N/A;(3,0)(2,0)(2,1)(2,2)(2,3)(2,4)(2,5)(2,6)(2,7)(2,8)(3,8)(4,8)(5,8)(6,8)(7,8);(7,8);green circle;N/A;(4,7);noChange;true;false;0;5.974;8.093;6.93;false
+7;2021-05-19;22:00:09;sanity;3;3;say;red;N/A;(4,0);noChange;(3,7)(2,7)(2,6)(2,5)(2,4)(2,3)(2,2)(3,2)(4,2);(4,2);red square;false;false;0;3.707;5.2909999999999995;4.537;false
+7;2021-05-19;22:00:09;sanity;4;0;do;N/A;(4,1)(4,2)(4,3)(4,4)(4,5)(3,5)(2,5)(1,5)(1,6);(1,6);red circle;N/A;(4,7);noChange;true;false;0;0.53;5.061999999999999;1.6100000000000003;false
+7;2021-05-19;22:00:09;sanity;5;1;say;purple;N/A;(4,0);noChange;(4,6)(4,5)(4,4)(4,3)(4,2)(4,1)(4,0)(5,0)(6,0);(6,0);purple circle;false;false;0;0.625;5.69;1.4829999999999997;false
+7;2021-05-19;22:00:09;sanity;6;7;say;green;N/A;(4,0);noChange;(3,7)(2,7)(2,6)(2,5)(2,4)(2,3)(2,2)(2,1)(2,0);(2,0);green triangle;false;true;0;0.748;12.606;5.975;true
+7;2021-05-19;22:00:09;sanity;7;6;say;red;N/A;(4,0);noChange;(4,6)(4,5)(5,5);(5,5);red square;false;false;0;0.696;4.952;1.7860000000000005;true
+7;2021-05-19;22:00:09;sanity;8;4;say;red;N/A;(4,0);noChange;(4,8)(4,9)(5,9)(6,9);(6,9);red square;false;false;0;0.761;8.949000000000002;1.5319999999999983;true
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+pre-post;2021-05-19;22:01:50;sanity;0;7;say;red;N/A;(4,0);noChange;(4,6)(4,5)(4,4)(4,3)(4,2)(5,2)(6,2)(7,2);(7,2);red triangle;false;false;0;1.237;5.351;2.3289999999999997;false
+pre-post;2021-05-19;22:01:50;sanity;1;4;do;N/A;(4,1)(4,2)(4,3)(4,4)(4,5)(4,6)(4,7)(4,8);(4,8);red triangle;N/A;(4,7);noChange;true;false;0;3.411;4.571;5.1690000000000005;false
+pre-post;2021-05-19;22:01:50;sanity;2;3;say;red;N/A;(4,0);noChange;(3,7)(2,7)(2,6)(2,5)(2,4)(2,3)(2,2)(3,2)(4,2);(4,2);red square;false;false;0;0.995;6.322;1.7979999999999992;false
+pre-post;2021-05-19;22:01:50;sanity;3;8;do;N/A;(5,0)(6,0)(7,0)(7,1)(7,2)(7,3);(7,3);red square;N/A;(4,7);noChange;true;false;0.09999999999999998;0.611;3.527;1.3609999999999998;false
+pre-post;2021-05-19;22:01:50;sanity;4;6;do;N/A;(4,1)(4,2)(4,3)(4,4)(4,5)(4,6)(4,7)(4,8)(4,9)(3,9)(2,9)(1,9)(0,9);(0,9);purple triangle;N/A;(4,7);noChange;true;false;0;0.901;8.824;47.120000000000005;true
+pre-post;2021-05-19;22:01:50;sanity;5;1;do;N/A;(4,1)(4,2)(4,3)(4,4)(4,5)(3,5);(3,5);green triangle;N/A;(4,7);noChange;true;false;0.09999999999999998;0.904;4.849;4.667999999999999;true
+pre-post;2021-05-19;22:01:50;sanity;6;0;do;N/A;(4,1)(4,2)(4,3)(4,4)(4,5)(3,5)(2,5)(1,5)(1,6);(1,6);red circle;N/A;(4,7);noChange;true;false;0.04999999999999999;8.664;5.055;9.969;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+pre-post;2021-05-20;00:18:29;sanity;0;1;move;N/A;(4,1)(3,1)(3,2)(3,3)(3,4)(3,5);(3,5);green triangle;N/A;(4,7);noChange;true;false;0.10;0.768;3.077;2.2590000000000003;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+19;2021-05-20;12:35:08;sanity;0;2;say;square;N/A;(4,0);noChange;(4,8)(4,9);(4,9);red square;false;true;0.30;18.19;5.099999999999998;21.793000000000003;false
+19;2021-05-20;12:35:08;sanity;1;3;say;purple;N/A;(4,0);noChange;(4,6)(5,6)(6,6)(7,6);(7,6);purple circle;false;true;0.50;22.049;6.161000000000001;26.519999999999996;false
+19;2021-05-20;12:35:08;sanity;2;5;say;green;N/A;(4,0);noChange;(4,8)(5,8)(6,8)(7,8);(7,8);green circle;false;true;0.70;5.435;3.011;7.222;false
+19;2021-05-20;12:35:08;sanity;3;7;do;N/A;(3,0)(2,0);(2,0);green triangle;N/A;(4,7);noChange;true;false;1.00;8.377;1.5079999999999991;10.798;false
+19;2021-05-20;12:35:08;sanity;4;6;say;triangle;N/A;(4,0);noChange;(4,8)(4,9)(3,9)(2,9)(1,9)(0,9);(0,9);purple triangle;false;true;1.10;7.353;5.202999999999999;8.645000000000001;false
+19;2021-05-20;12:35:08;sanity;5;0;say;circle;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(1,6);(1,6);red circle;false;true;1.30;7.2;2.793;9.998000000000001;false
+19;2021-05-20;12:35:08;sanity;6;4;say;red;N/A;(4,0);noChange;(4,8)(4,9)(5,9)(6,9);(6,9);red square;false;false;1.10;9.962;3.1709999999999994;23.517;false
+19;2021-05-20;12:35:08;sanity;7;8;do;N/A;(5,0)(6,0)(7,0)(7,1)(7,2)(7,3);(7,3);red square;N/A;(4,7);noChange;true;false;1.20;5.259;3.5269999999999992;6.788;false
+19;2021-05-20;12:35:08;sanity;8;1;say;triangle;N/A;(4,0);noChange;(3,7)(3,6)(3,5);(3,5);green triangle;false;true;1.45;7.246;2.4450000000000003;9.386;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+pre-post;2021-05-20;12:44:45;sanity;0;0;say;circle;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(1,6);(1,6);red circle;false;true;0.20;5.905;4.1499999999999995;15.353000000000002;false
+pre-post;2021-05-20;12:44:45;sanity;1;4;say;triangle;N/A;(4,0);noChange;(5,7)(6,7)(6,8);(6,8);purple triangle;false;false;0.05;13.645;6.010999999999999;15.329;false
+pre-post;2021-05-20;12:44:45;sanity;2;5;say;green;N/A;(4,0);noChange;(4,8)(5,8)(6,8)(7,8);(7,8);green circle;false;true;0.25;4.612;2.63;6.9270000000000005;false
+pre-post;2021-05-20;12:44:45;sanity;3;1;say;triangle;N/A;(4,0);noChange;(3,7)(3,6)(3,5);(3,5);green triangle;false;true;0.50;3.783;3.765;9.209;false
+pre-post;2021-05-20;12:44:45;sanity;4;3;say;purple;N/A;(4,0);noChange;(4,6)(5,6)(6,6)(7,6);(7,6);purple circle;false;true;0.70;7.263;5.711;8.853;false
+pre-post;2021-05-20;12:44:45;sanity;5;8;do;N/A;(5,0)(6,0)(7,0)(7,1)(7,2)(7,3);(7,3);red square;N/A;(4,7);noChange;true;false;0.80;4.784;3.5249999999999995;10.358;false
+pre-post;2021-05-20;12:44:45;sanity;6;7;do;N/A;(3,0)(2,0);(2,0);green triangle;N/A;(4,7);noChange;true;false;1.10;3.808;1.5090000000000003;9.338;false
+pre-post;2021-05-20;12:44:45;sanity;7;2;say;square;N/A;(4,0);noChange;(4,8)(4,9);(4,9);red square;false;true;1.40;6.115;7.517999999999999;7.329000000000001;false
+pre-post;2021-05-20;12:44:45;sanity;8;6;say;triangle;N/A;(4,0);noChange;(4,8)(4,9)(3,9)(2,9)(1,9)(0,9);(0,9);purple triangle;false;true;1.50;6.911;14.195000000000002;7.964999999999998;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+23;2021-05-20;23:54:39;sanity;0;8;say;square;N/A;(4,0);noChange;(3,7)(3,8);(3,8);green square;false;false;0.00;13.625;3.2029999999999994;23.922;false
+23;2021-05-20;23:54:39;sanity;1;1;say;triangle;N/A;(4,0);noChange;(3,7)(3,6)(3,5);(3,5);green triangle;false;true;0.25;9.875;2.2279999999999998;12.645;false
+23;2021-05-20;23:54:39;sanity;2;0;say;circle;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(1,6);(1,6);red circle;false;true;0.45;5.925;3.7269999999999994;7.195000000000001;false
+23;2021-05-20;23:54:39;sanity;3;5;say;green;N/A;(4,0);noChange;(4,8)(5,8)(6,8)(7,8);(7,8);green circle;false;true;0.65;6.152;2.6559999999999997;7.344;false
+23;2021-05-20;23:54:39;sanity;4;3;say;purple;N/A;(4,0);noChange;(4,6)(5,6)(6,6)(7,6);(7,6);purple circle;false;true;0.85;21.169;3.853999999999999;22.841;false
+23;2021-05-20;23:54:39;sanity;5;4;say;triangle;N/A;(4,0);noChange;(5,7)(6,7)(6,8);(6,8);purple triangle;false;false;0.70;7.491;2.521000000000001;15.354;false
+23;2021-05-20;23:54:39;sanity;6;2;say;square;N/A;(4,0);noChange;(4,8)(4,9);(4,9);red square;false;true;1.00;17.424;1.7409999999999997;18.555;false
+23;2021-05-20;23:54:39;sanity;7;6;say;triangle;N/A;(4,0);noChange;(4,8)(4,9)(3,9)(2,9)(1,9)(0,9);(0,9);purple triangle;false;true;1.10;9.401;8.575;10.266000000000002;false
+23;2021-05-20;23:54:39;sanity;8;7;do;N/A;(3,0)(2,0);(2,0);green triangle;N/A;(4,7);noChange;true;false;1.40;5.308;1.508;6.8839999999999995;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+26;2021-05-21;21:15:11;sanity;0;7;do;N/A;(3,0)(2,0);(2,0);green triangle;N/A;(4,7);noChange;true;false;0.30;9.181;1.5280000000000005;24.799999999999997;false
+26;2021-05-21;21:15:11;sanity;1;1;say;triangle;N/A;(4,0);noChange;(3,7)(3,6)(3,5);(3,5);green triangle;false;true;0.55;10.579;3.3419999999999987;12.384000000000002;false
+26;2021-05-21;21:15:11;sanity;2;6;say;triangle;N/A;(4,0);noChange;(4,8)(4,9)(3,9)(2,9)(1,9)(0,9);(0,9);purple triangle;false;true;0.65;8.451;11.117999999999999;10.584000000000003;false
+26;2021-05-21;21:15:11;sanity;3;4;say;triangle;N/A;(4,0);noChange;(5,7)(6,7)(6,8);(6,8);purple triangle;false;false;0.50;5.027;2.1479999999999997;11.6;false
+26;2021-05-21;21:15:11;sanity;4;0;say;circle;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(1,6);(1,6);red circle;false;true;0.70;3.472;4.122999999999999;6.376000000000001;false
+26;2021-05-21;21:15:11;sanity;5;5;say;green;N/A;(4,0);noChange;(4,8)(5,8)(6,8)(7,8);(7,8);green circle;false;true;0.90;3.308;2.739;4.2620000000000005;false
+26;2021-05-21;21:15:11;sanity;6;3;say;purple;N/A;(4,0);noChange;(4,6)(5,6)(6,6)(7,6);(7,6);purple circle;false;true;1.10;4.077;4.6579999999999995;6.281000000000001;false
+26;2021-05-21;21:15:11;sanity;7;2;say;square;N/A;(4,0);noChange;(4,8)(4,9);(4,9);red square;false;true;1.40;3.788;3.4330000000000003;5.616;false
+26;2021-05-21;21:15:11;sanity;8;8;do;N/A;(5,0)(6,0)(7,0)(7,1)(7,2)(7,3);(7,3);red square;N/A;(4,7);noChange;true;false;1.50;5.645;3.569000000000001;10.207999999999998;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+29;2021-05-23;19:01:28;sanity;0;4;say;red;N/A;(4,0);noChange;(4,8)(4,9)(5,9)(6,9);(6,9);red square;false;false;0.00;26.268;3.948999999999998;30.151000000000003;false
+29;2021-05-23;19:01:28;sanity;1;1;do;N/A;(4,1)(4,2)(4,3)(4,4)(4,5)(3,5);(3,5);green triangle;N/A;(4,7);noChange;true;false;0.10;11.906;3.532;13.872;false
+29;2021-05-23;19:01:28;sanity;2;6;do;N/A;(4,1)(4,2)(4,3)(4,4)(4,5)(4,6)(4,7)(4,8)(4,9)(3,9)(2,9)(1,9)(0,9);(0,9);purple triangle;N/A;(4,7);noChange;true;false;0.00;9.495;7.0600000000000005;10.947000000000001;false
+29;2021-05-23;19:01:28;sanity;3;8;do;N/A;(5,0)(6,0)(7,0)(7,1)(7,2)(7,3);(7,3);red square;N/A;(4,7);noChange;true;false;0.10;6.057;3.529;7.260999999999999;false
+29;2021-05-23;19:01:28;sanity;4;3;say;purple;N/A;(4,0);noChange;(4,6)(5,6)(6,6)(7,6);(7,6);purple circle;false;true;0.30;12.735;5.3629999999999995;17.036;false
+29;2021-05-23;19:01:28;sanity;5;2;do;N/A;(4,1)(4,2)(3,2)(2,2)(2,3)(2,4)(2,5)(2,6)(2,7)(2,8)(2,9)(3,9)(4,9);(4,9);red square;N/A;(4,7);noChange;true;false;0.05;23.358;7.065999999999999;24.781000000000002;false
+29;2021-05-23;19:01:28;sanity;6;5;say;green;N/A;(4,0);noChange;(4,8)(5,8)(6,8)(7,8);(7,8);green circle;false;true;0.25;11.862;3.9990000000000006;12.821;false
+29;2021-05-23;19:01:28;sanity;7;7;do;N/A;(3,0)(2,0);(2,0);green triangle;N/A;(4,7);noChange;true;false;0.55;7.674;1.509999999999999;8.832;false
+29;2021-05-23;19:01:28;sanity;8;0;say;circle;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(1,6);(1,6);red circle;false;true;0.75;8.666;3.3819999999999997;10.425;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+31;2021-05-24;07:34:22;sanity;0;4;say;red;N/A;(4,0);noChange;(4,8)(4,9)(5,9)(6,9);(6,9);red square;false;false;0.00;45.377;7.321999999999996;374.323;false
+31;2021-05-24;07:34:22;sanity;1;7;do;N/A;(3,0)(2,0);(2,0);green triangle;N/A;(4,7);noChange;true;false;0.30;15.686;1.529;16.613;false
+31;2021-05-24;07:34:22;sanity;2;8;do;N/A;(5,0)(6,0)(7,0)(7,1)(7,2)(7,3);(7,3);red square;N/A;(4,7);noChange;true;false;0.40;3.899;3.577;4.925000000000001;false
+31;2021-05-24;07:34:22;sanity;3;3;say;purple;N/A;(4,0);noChange;(4,6)(5,6)(6,6)(7,6);(7,6);purple circle;false;true;0.60;14.032;4.6030000000000015;15.823999999999998;false
+31;2021-05-24;07:34:22;sanity;4;5;say;green;N/A;(4,0);noChange;(4,8)(5,8)(6,8)(7,8);(7,8);green circle;false;true;0.80;13.678;7.260999999999999;14.71;false
+31;2021-05-24;07:34:22;sanity;5;0;say;circle;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(1,6);(1,6);red circle;false;true;1.00;8.174;2.984;9.121;false
+31;2021-05-24;07:34:22;sanity;6;6;say;triangle;N/A;(4,0);noChange;(4,8)(4,9)(3,9)(2,9)(1,9)(0,9);(0,9);purple triangle;false;true;1.10;6.669;5.917000000000001;7.492;false
+31;2021-05-24;07:34:22;sanity;7;2;say;square;N/A;(4,0);noChange;(4,8)(4,9);(4,9);red square;false;true;1.40;3.83;4.157;5.128;false
+31;2021-05-24;07:34:22;sanity;8;1;say;triangle;N/A;(4,0);noChange;(3,7)(3,6)(3,5);(3,5);green triangle;false;true;1.65;4.969;7.306;5.768;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+33;2021-05-24;09:41:42;sanity;0;2;say;red;N/A;(4,0);noChange;(5,7)(6,7)(7,7)(8,7);(8,7);red circle;false;false;0.00;2.392;6.344000000000001;8.729999999999999;false
+33;2021-05-24;09:41:42;sanity;1;6;say;purple;N/A;(4,0);noChange;(4,6)(3,6)(2,6);(2,6);purple square;false;false;0.00;5.657;3.968;11.292;false
+33;2021-05-24;09:41:42;sanity;2;0;say;circle;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(1,6);(1,6);red circle;false;true;0.20;10.332;2.603999999999999;13.392000000000001;false
+33;2021-05-24;09:41:42;sanity;3;5;say;green;N/A;(4,0);noChange;(4,8)(5,8)(6,8)(7,8);(7,8);green circle;false;true;0.40;4.661;3.912000000000001;6.030999999999999;false
+33;2021-05-24;09:41:42;sanity;4;7;do;N/A;(3,0)(2,0);(2,0);green triangle;N/A;(4,7);noChange;true;false;0.70;3.909;1.5110000000000001;4.856;false
+33;2021-05-24;09:41:42;sanity;5;4;say;red;N/A;(4,0);noChange;(4,8)(4,9)(5,9)(6,9);(6,9);red square;false;false;0.50;2.661;3.36;4.037000000000001;false
+33;2021-05-24;09:41:42;sanity;6;3;say;purple;N/A;(4,0);noChange;(4,6)(5,6)(6,6)(7,6);(7,6);purple circle;false;true;0.70;4.732;3.3359999999999994;5.493000000000001;false
+33;2021-05-24;09:41:42;sanity;7;8;do;N/A;(5,0)(6,0)(7,0)(7,1)(7,2)(7,3);(7,3);red square;N/A;(4,7);noChange;true;false;0.80;2.842;3.5290000000000004;3.8249999999999997;false
+33;2021-05-24;09:41:42;sanity;8;1;say;triangle;N/A;(4,0);noChange;(3,7)(3,6)(3,5);(3,5);green triangle;false;true;1.05;3.4;2.161;4.178000000000001;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+pre-post;2021-05-24;17:55:39;sanity;0;6;say;triangle;N/A;(4,0);noChange;(4,8)(4,9)(3,9)(2,9)(1,9)(0,9);(0,9);purple triangle;false;true;0.10;13.374;3.6889999999999983;18.652;false
+pre-post;2021-05-24;17:55:39;sanity;1;8;do;N/A;(5,0)(6,0)(7,0)(7,1)(7,2)(7,3);(7,3);red square;N/A;(4,7);noChange;true;false;0.20;7.277;3.518;8.642;false
+pre-post;2021-05-24;17:55:39;sanity;2;3;say;purple;N/A;(4,0);noChange;(4,6)(5,6)(6,6)(7,6);(7,6);purple circle;false;true;0.40;18.164;3.6409999999999982;19.040000000000003;false
+pre-post;2021-05-24;17:55:39;sanity;3;1;say;triangle;N/A;(4,0);noChange;(3,7)(3,6)(3,5);(3,5);green triangle;false;true;0.65;3.227;2.3649999999999998;4.553000000000001;false
+pre-post;2021-05-24;17:55:39;sanity;4;7;do;N/A;(3,0)(2,0);(2,0);green triangle;N/A;(4,7);noChange;true;false;0.95;2.08;1.5059999999999998;2.914;false
+pre-post;2021-05-24;17:55:39;sanity;5;5;say;green;N/A;(4,0);noChange;(4,8)(5,8)(6,8)(7,8);(7,8);green circle;false;true;1.15;3.003;3.867;3.7939999999999996;false
+pre-post;2021-05-24;17:55:39;sanity;6;2;say;square;N/A;(4,0);noChange;(4,8)(4,9);(4,9);red square;false;true;1.45;3.71;4.014;4.478000000000001;false
+pre-post;2021-05-24;17:55:39;sanity;7;0;say;circle;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(1,6);(1,6);red circle;false;true;1.65;3.936;4.914;5.075000000000001;false
+pre-post;2021-05-24;17:55:39;sanity;8;4;say;triangle;N/A;(4,0);noChange;(5,7)(6,7)(6,8);(6,8);purple triangle;false;false;1.50;7.997;2.8640000000000008;11.456;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+pre-post;2021-05-24;19:48:59;sanity;0;0;do;N/A;(4,1)(4,2)(4,3)(4,4)(4,5)(3,5)(2,5)(2,6)(2,7)(2,8);(2,8);red triangle;N/A;(4,7);noChange;true;false;0.00;54.01;5.584000000000003;62.233999999999995;false
+pre-post;2021-05-24;19:48:59;sanity;1;6;say;red;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(0,7)(0,6)(0,5);(0,5);red circle;false;false;0.00;44.383;3.9609999999999985;96.993;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+43;2021-05-24;21:14:38;sanity;0;5;say;triangle;N/A;(4,0);noChange;(3,7)(2,7)(2,8);(2,8);red triangle;false;true;0.25;6.378;2.301;9.971;false
+43;2021-05-24;21:14:38;sanity;1;9;do;N/A;(4,1)(4,2)(4,3)(5,3)(6,3)(7,3);(7,3);red square;N/A;(4,7);noChange;true;false;0.35;9.962;3.5389999999999997;12.969;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+pre-post;2021-05-24;21:15:17;sanity;0;3;say;triangle;N/A;(4,0);noChange;(3,7)(2,7)(2,8);(2,8);red triangle;false;true;0.25;1.271;3.633;2.702;false
+pre-post;2021-05-24;21:15:17;sanity;1;0;do;N/A;(4,1)(4,2)(4,3)(5,3)(6,3)(7,3);(7,3);red square;N/A;(4,7);noChange;true;false;0.35;1.124;3.538;2.6250000000000004;false
+pre-post;2021-05-24;21:15:17;sanity;2;8;say;green;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(1,8)(1,9);(1,9);green square;false;true;0.50;30.128;4.003999999999998;169.026;false
+pre-post;2021-05-24;21:15:17;sanity;3;9;say;red;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(0,7)(0,6)(0,5);(0,5);red circle;false;false;0.20;85.161;4.600999999999999;103.618;false
+pre-post;2021-05-24;21:15:17;sanity;4;6;say;square;N/A;(4,0);noChange;(4,6)(3,6)(2,6)(1,6)(1,5);(1,5);purple square;false;false;0.00;9.49;5.686;13.29;false
+pre-post;2021-05-24;21:15:17;sanity;5;2;do;N/A;(4,1)(4,2)(4,3)(4,4)(4,5)(3,5)(2,5)(2,6)(3,6)(4,6);(4,6);purple triangle;N/A;(4,7);noChange;true;false;0.00;20.114;5.5589999999999975;22.257;false
+pre-post;2021-05-24;21:15:17;sanity;6;1;say;green;N/A;(4,0);noChange;(5,7)(6,7)(7,7)(8,7);(8,7);green triangle;false;true;0.20;12.133;3.3020000000000014;83.657;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+46;2021-05-24;21:27:41;sanity;0;7;say;red;N/A;(4,0);noChange;(4,8)(4,9)(3,9)(2,9)(1,9)(0,9);(0,9);red square;false;false;0.00;15.603;8.003000000000002;17.278;false
+46;2021-05-24;21:27:41;sanity;1;9;say;red;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(0,7)(0,6)(0,5);(0,5);red circle;false;false;0.00;14.773;6.367000000000001;18.983999999999998;false
+subjNum;startDate;startTime;trialType;trialIndex;exptId;decision;signal;signalerPath;signalerEndCoordinate;signalerEndItem;receiverPath;receiverEndCoordinate;receiverEndItem;signalerAchievedGoal;receiverAchievedGoal;totalUtility;decisionTime;actionTime;feedbackTime;responseWarningPopup
+47;2021-05-24;21:30:18;sanity;0;8;say;red;N/A;(4,0);noChange;(4,8)(4,9)(3,9)(2,9)(1,9)(0,9);(0,9);red square;false;false;0.00;6.193;3.8610000000000007;8.062999999999999;false
+47;2021-05-24;21:30:18;sanity;1;1;say;square;N/A;(4,0);noChange;(3,7)(2,7)(2,6)(2,5)(2,4)(2,3)(3,3)(4,3)(5,3)(6,3)(7,3);(7,3);red square;false;true;0.00;5.661;6.565000000000001;8.097;false
+47;2021-05-24;21:30:18;sanity;2;7;say;square;N/A;(4,0);noChange;(3,7)(2,7)(1,7)(1,8)(1,9);(1,9);green square;false;true;0.15;9.134;3.8409999999999993;12.268000000000002;false

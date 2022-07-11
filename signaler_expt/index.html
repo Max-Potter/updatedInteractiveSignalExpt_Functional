@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Experiment</title>
+    <link rel="shortcut icon" href="ucla.png">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Work+Sans:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.3/mobile-detect.min.js'></script>
+    <script src="js/record.js"></script>
+    <script src="js/trialInterface.js"></script>
+    <script src="js/trial.js"></script>
+    <script src="js/instruction.js"></script>
+    <script src="js/subject.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <!--==========INSTRUCTIONS==========-->
+    <div class="pageBox" id="instrPage">
+        <div id="instrBox">
+            <p></p>
+            <embed id="consent" src="2021_5-5_informedConsent.pdf"></iframe>
+            <p id="instrText"></p>
+            <img id="examGrid" src="exampleGrid.png" alt="An error occurred when loading the picture.">
+            <div class="pageBox" id="instrQBox">
+                <p id="instrQText">Which of the following is <b>not correct</b>?</p>
+                <div id="quizBox">
+                <label><div class="option"><input class="optionRadio" type="radio" name="instrQ" value="walk"><div class="optionText">You can check the minimum steps for either you or your partner to reach an item by moving your mouse over it.</div></div></label>
+                <label><div class="option"><input class="optionRadio" type="radio" name="instrQ" value="points"><div class="optionText">If either your partner or you reach the target, you get $<p id="rewardInInstrQuiz"></p> as money bonus.</div></div></label>
+                <label><div class="option"><input class="optionRadio" type="radio" name="instrQ" value="costs"><div class="optionText">Your partner can see all the items in the grids, but does not know which one the target is.</div></div></label>
+                <label><div class="option"><input class="optionRadio" type="radio" name="instrQ" value="several"><div class="optionText">You can send out multiple signals to your partner in each round.</div></div></label>
+                </div>
+                <div class='warning' id='instrQWarning'></div>
+                <button class="butNext" id="instrQBut" onclick="SUBMIT_INSTR_Q()">SUBMIT</button>
+            </div>
+            <button class="butNext" id="instrNextBut" onclick="instr.next()">NEXT</button>
+            <button class="butNext" id="instrBackBut" onclick="instr.back()">BACK</button>
+        </div>
+    </div>
+    <!--==========TRY MOVE==========-->
+    <div class="pageBox" id="tryMovePage">
+        <div id="tryMoveBox">
+            <div id="tryMoveBoard">
+                    <div class="info hiddenInfo">
+                        <p>Practice </p>
+                        <p></p>
+                    </div>
+                    <div class="info">
+                        <p style="top: -5px;">Target: </p>
+                        <img class="shape" id="tryMoveGoal" alt="An error occurred when loading the picture.">
+                    </div>
+                    <div class="info hiddenInfo">
+                        <p>Total Score: </p>
+                        <p class="tryScore"></p>
+                    </div>
+                    <div class="info">
+                        <p>Step: </p>
+                        <p id="tryMoveCost"></p>
+                    </div>
+            </div>
+            <div class="tryColumn tryVerticalAxis">
+                <p>9</p>
+                <p>8</p>
+                <p>7</p>
+                <p>6</p>
+                <p>5</p>
+                <p>4</p>
+                <p>3</p>
+                <p>2</p>
+                <p>1</p>
+                <p>0</p>
+            </div>
+            <div class="tryColumn" id="tryMoveGridContainer"></div>
+            <div class="tryHorizontalAxis">0 1 2 3 4 5 6 7 8</div>
+            <div class="tryColumn text">
+                <div class="tryExptInstr">
+                    <div class="tryExptFade">
+                        <div class="trySay">
+                            <p>Send one signal to <img class="inlineShape" src="shape/receiver.png">:</p>
+                            <button class="butExpt">red</button>
+                            <button class="butExpt">green</button>
+                            <button class="butExpt">purple</button>
+                            <button class="butExpt">circle</button>
+                            <button class="butExpt">square</button>
+                            <button class="butExpt">triangle</button>
+                        </div>
+                        <div class="tryDo">
+                            <p>Let <img class="inlineShape" src="shape/signaler.png"> walk: </p>
+                            <button class="butExpt" id="tryMoveMoveBut">Go</button>
+                        </div>
+                    </div>
+                    <div class="tryDecision"></div>
+                </div>
+            </div>
+            <div class="tryResult">
+                <p class="tryResultText"></p>
+                <button class="butNext" id="tryMoveResultBut">NEXT</button>
+            </div>
+        </div>
+    </div>
+        <!--==========TRY SAY==========-->
+        <div class="pageBox" id="trySayPage">
+            <div id="trySayBox">
+                <div id="trySayBoard">
+                        <div class="info hiddenInfo">
+                            <p>Practice </p>
+                            <p></p>
+                        </div>
+                        <div class="info">
+                            <p style="top: -5px;">Target: </p>
+                            <img class="shape" id="trySayGoal" alt="An error occurred when loading the picture.">
+                        </div>
+                        <div class="info hiddenInfo">
+                            <p>Total Score: </p>
+                            <p class="tryScore"></p>
+                        </div>
+                        <div class="info">
+                            <p>Step: </p>
+                            <p id="trySayCost"></p>
+                        </div>
+                </div>
+                <div class="tryColumn tryVerticalAxis">
+                    <p>9</p>
+                    <p>8</p>
+                    <p>7</p>
+                    <p>6</p>
+                    <p>5</p>
+                    <p>4</p>
+                    <p>3</p>
+                    <p>2</p>
+                    <p>1</p>
+                    <p>0</p>
+                </div>
+                <div class="tryColumn" id="trySayGridContainer"></div>
+                <div class="tryHorizontalAxis">0 1 2 3 4 5 6 7 8</div>
+                <div class="tryColumn text">
+                    <div class="tryExptInstr">
+                        <div class="tryExptFade">
+                            <div class="trySay">
+                                <p>Send one signal to <img class="shape" src="shape/receiver.png">:</p>
+                                <button class="butExpt" id="tryButOption0">red</button>
+                                <button class="butExpt" id="tryButOption1">green</button>
+                                <button class="butExpt" id="tryButOption2">purple</button>
+                                <button class="butExpt" id="tryButOption3">circle</button>
+                                <button class="butExpt" id="tryButOption4">square</button>
+                                <button class="butExpt" id="tryButOption5">triangle</button>
+                            </div>
+                            <div class="tryDo">
+                                <p class="inlineImg">Use arrow keys on your keyboard to move <img class="inlineShape" src="shape/signaler.png">.</p>
+                            </div>
+                        </div>
+                        <div class="tryDecision"></div>
+                    </div>
+                </div>
+                <div class="tryResult">
+                    <p class="tryResultText"></p>
+                    <button class="butNext" id="trySayResultBut">NEXT</button>
+                </div>
+            </div>
+        </div>
+    <!--==========SANITY CHECK==========-->
+    <div class="pageBox" id="sanityCheckPage">
+        <div id="sanityCheckBox">
+            <div id="sanityCheckScoreBoard">
+                <div class="info" id="sanityCheckInfo">
+                    <p>Practice </p>
+                    <p id="sanityCheckRound"></p>
+                </div>
+                <div class="info">
+                    <p style="top: -5px;">Target: </p>
+                    <img class="shape" id="sanityCheckGoalShape" alt="An error occurred when loading the picture.">
+                </div>
+                <div class="info hiddenInfo">
+                    <p>Total Bonus: </p>
+                    <p id="sanityCheckTotalBonusBefore"></p>
+                </div>
+                <div class="info" style="width:100px;">
+                    <p>Step: </p>
+                    <p id="sanityCheckStep"></p>
+                </div>
+            </div>
+            <div class="column" id="sanityCheckVerticalAxis">
+                <p>9</p>
+                <p>8</p>
+                <p>7</p>
+                <p>6</p>
+                <p>5</p>
+                <p>4</p>
+                <p>3</p>
+                <p>2</p>
+                <p>1</p>
+                <p>0</p>
+            </div>
+            <div class="column" id="sanityCheckGridContainer"></div>
+            <div id="sanityCheckHorizontalAxis">0 1 2 3 4 5 6 7 8</div>
+            <div class="column text">
+                <div id="sanityCheckInstr">
+                    <div id="sanityCheckFade">
+                        <div id="sanityCheckSay">
+                            <p>Send one signal to <img class="inlineShape" src="shape/receiver.png">:</p>
+                            <button class="butExpt" id="sanityCheckButOption0">red</button>
+                            <button class="butExpt" id="sanityCheckButOption1">green</button>
+                            <button class="butExpt" id="sanityCheckButOption2">purple</button>
+                            <button class="butExpt" id="sanityCheckButOption3">circle</button>
+                            <button class="butExpt" id="sanityCheckButOption4">square</button>
+                            <button class="butExpt" id="sanityCheckButOption5">triangle</button>
+                        </div>
+                        <div id="sanityCheckDo">
+                            <!-- <p class="inlineImg">Use arrow keys on your keyboard to move <img class="shape" src="shape/signaler.png">.</p> -->
+                            <p>Let <img class="inlineShape" src="shape/signaler.png"> walk: </p>
+                            <button class="butExpt" id="sanityCheckMoveBut">Go</button>
+                        </div>
+                        <!-- <div id="sanityCheckQuit">
+                            <p id="sanityCheckQuitText">Give up on this trial: </p>
+                            <button class="butExpt" id="sanityCheckQuitBut">Quit</button>
+                        </div> -->
+                    </div>
+                    <div id="sanityCheckDecision"></div>
+                </div>
+            </div>
+            <div id="sanityCheckResult">
+                <p id="sanityCheckResultText"></p>
+                <div class="resultInfo">
+                    <p class="title stepCostInResult"></p>
+                    <p class="data" id="sanityCheckCost"></p>
+                </div>
+                <div class="resultInfo">
+                    <p class="title">Reward: </p>
+                    <p class="data" id="sanityCheckReward"></p>
+                </div>
+                <div id="sanityCheckRoundBonusBox">
+                    <p class="title">Round Bonus: </p>
+                    <p class="data" id="sanityCheckRoundBonus"></p>
+                </div>
+                <div id="sanityCheckTotalBonusBox">
+                    <p class="title">Total Bonus (Practice): </p>
+                    <p class="data" id="sanityCheckTotalBonusAfter"></p>
+                </div>
+                <button class="butNext" id="sanityCheckResultBut">NEXT</button>
+            </div>
+        </div>
+    </div>
+
+    <!--==========PRACTICE EXPERIMENT==========-->
+    <!-- <div class="pageBox" id="practiceExptPage">
+        <div id="practiceExptBox">
+            <div id="practiceScoreBoard">
+                    <div class="info" id="practiceInfo">
+                        <p>Practice </p>
+                        <p id="practiceRound"></p>
+                    </div>
+                    <div class="info">
+                        <p style="top: -5px;">Target: </p>
+                        <img class="shape" id="practiceGoalShape" alt="An error occurred when loading the picture.">
+                    </div>
+                    <div class="info">
+                        <p>Total Bonus: </p>
+                        <p id="practiceTotalBonusBefore"></p>
+                    </div>
+                    <div class="info">
+                        <p>Cost: </p>
+                        <p class="practiceCost"></p>
+                    </div>
+            </div>
+            <div class="column" id="practiceVerticalAxis">
+                <p>9</p>
+                <p>8</p>
+                <p>7</p>
+                <p>6</p>
+                <p>5</p>
+                <p>4</p>
+                <p>3</p>
+                <p>2</p>
+                <p>1</p>
+                <p>0</p>
+            </div>
+            <div class="column" id="practiceGridContainer"></div>
+            <div id="practiceHorizontalAxis">0 1 2 3 4 5 6 7 8</div>
+            <div class="column text">
+                <div id="practiceExptInstr">
+                    <div id="practiceExptFade">
+                        <div id="practiceSay">
+                            <p>Send one signal to <img class="shape" src="shape/receiver.png">:</p>
+                            <button class="butExpt" id="practiceButOption0">red</button>
+                            <button class="butExpt" id="practiceButOption1">green</button>
+                            <button class="butExpt" id="practiceButOption2">purple</button>
+                            <button class="butExpt" id="practiceButOption3">circle</button>
+                            <button class="butExpt" id="practiceButOption4">square</button>
+                            <button class="butExpt" id="practiceButOption5">triangle</button>
+                        </div>
+                        <div id="practiceDo">
+                            <p class="inlineImg">Use arrow keys on your keyboard to move <img class="shape" src="shape/signaler.png">.</p>
+                        </div>
+                        <div id="practiceQuit">
+                            <p id="practiceQuitText">Give up on this trial: </p>
+                            <button class="butExpt" id="practiceQuitBut">Quit</button>
+                        </div>
+                    </div>
+                    <div id="practiceDecision"></div>
+                </div>
+            </div>
+            <div id="practiceResult">
+                <p id="practiceResultText"></p>
+                <div class="resultInfo">
+                    <p class="title">Cost: </p>
+                    <p class="data practiceCost"></p>
+                </div>
+                <div class="resultInfo">
+                    <p class="title">Reward: </p>
+                    <p class="data" id="practiceReward"></p>
+                </div>
+                <div id="practiceRoundBonusBox">
+                    <p class="title">Round Bonus: </p>
+                    <p class="data" id="practiceRoundBonus"></p>
+                </div>
+                <div id="practiceTotalBonusBox">
+                    <p class="title">Total Bonus (Practice): </p>
+                    <p class="data" id="practiceTotalBonusAfter"></p>
+                </div>
+                <button class="butNext" id="practiceResultBut">NEXT</button>
+            </div>
+        </div>
+    </div> -->
+    <!--==========FORMAL EXPERIMENT==========-->
+    <div class="pageBox" id="exptPage">
+        <div id="exptBox">
+            <div id="scoreBoard">
+                    <div class="info" id="exptPracticeInfo">
+                        <p>Experiment </p>
+                        <p></p>
+                    </div>
+                    <div class="info">
+                        <p style="top: -5px;">Target: </p>
+                        <img class="shape" id="goalShape" alt="An error occurred when loading the picture.">
+                    </div>
+                    <div class="info hiddenInfo">
+                        <p>Total Bonus: </p>
+                        <p id="exptTotalBonusBefore"></p>
+                    </div>
+                    <div class="info">
+                        <p>Step: </p>
+                        <p id="exptStep"></p>
+                    </div>
+            </div>
+            <div class="column" id="verticalAxis">
+                <p>9</p>
+                <p>8</p>
+                <p>7</p>
+                <p>6</p>
+                <p>5</p>
+                <p>4</p>
+                <p>3</p>
+                <p>2</p>
+                <p>1</p>
+                <p>0</p>
+            </div>
+            <div class="column" id="gridContainer"></div>
+            <div id="horizontalAxis">0 1 2 3 4 5 6 7 8</div>
+            <div class="column text">
+                <div id="exptInstr">
+                    <div id="exptFade">
+                        <div id="say">
+                            <p>Send one signal to <img class="inlineShape" src="shape/receiver.png">:</p>
+                            <button class="butExpt" id="butOption0">red</button>
+                            <button class="butExpt" id="butOption1">green</button>
+                            <button class="butExpt" id="butOption2">purple</button>
+                            <button class="butExpt" id="butOption3">circle</button>
+                            <button class="butExpt" id="butOption4">square</button>
+                            <button class="butExpt" id="butOption5">triangle</button>
+                        </div>
+                        <div id="do">
+                            <!-- <p class="inlineImg">Use arrow keys on your keyboard to move <img class="shape" src="shape/signaler.png">.</p> -->
+                            <p>Let <img class="inlineShape" src="shape/signaler.png"> walk: </p>
+                            <button class="butExpt" id="exptMoveBut">Go</button>
+                        </div>
+                        <!-- <div id="quit">
+                            <p id="quitText">Give up on this trial: </p>
+                            <button class="butExpt" id="quitBut">Quit</button>
+                        </div> -->
+                    </div>
+                    <div id="decision"></div>
+                </div>
+            </div>
+            <div id="result">
+                <p id="resultText"></p>
+                <div class="resultInfo">
+                    <p class="title stepCostInResult"></p>
+                    <p class="data" id="exptCost"></p>
+                </div>
+                <div class="resultInfo">
+                    <p class="title">Reward: </p>
+                    <p class="data" id="reward"></p>
+                </div>
+                <div id="exptRoundBonusBox">
+                    <p class="title">Round Bonus:</p>
+                    <p class="data" id="exptRoundBonus"></p>
+                </div>
+                <div id="totalBonusBox">
+                    <p class="title">Total Bonus: </p>
+                    <p class="data" id="exptTotalBonusAfter"></p>
+                </div>
+                <button class="butNext" id="resultBut">NEXT</button>
+            </div>
+        </div>
+    </div>
+    <!--======== DEBRIEFING QUESTION ========-->
+    <div class='pageBox' id='questionsBox'>
+        <p>Did you complete this experiment seriously throughout (without randomly responding)?</p>
+        <div class='smallDimText'>(You will receive your compensation regardless what your answer is here. Please be honest for science! Thanks!)</div>
+        <label><div class="option"><input class='optionRadio' type='radio' name='serious' value='F' /><div class='optionText'>No, I didn't.</div></div></label>
+        <label><div class="option"><input class='optionRadio' type='radio' name='serious' value='T' /><div class='optionText'>Yes, I did.</div></div></label>
+        <br><br>
+        <p>What was the your strategy for solving this task?</p>
+        <textarea id='strategy' name="debQ" rows="3"></textarea>
+        <br><br><br>
+        <p>Was any part of the procedure unclear? Did you have any technical difficulty completing any of the tasks?</p>
+        <textarea id='problems' name="debQ" rows="3"></textarea>
+        <br><br>
+        <p>Please rate your partner's performance.</p>
+        <div id="rating">
+            <label><div class="option"><input class='optionRadio' type='radio' name='rating' value='1' /><div class='optionText'>Very Poor</div></div></label>
+            <label><div class="option"><input class='optionRadio' type='radio' name='rating' value='2' /><div class='optionText'>Poor</div></div></label>
+            <label><div class="option"><input class='optionRadio' type='radio' name='rating' value='3' /><div class='optionText'>Average</div></div></label>
+            <label><div class="option"><input class='optionRadio' type='radio' name='rating' value='4' /><div class='optionText'>Good</div></div></label>
+            <label><div class="option"><input class='optionRadio' type='radio' name='rating' value='5' /><div class='optionText'>Excellent</div></div></label>
+        </div>
+        <br><br>
+        <p>To what extent do you think the potential money bonus motivated you?</p>
+        <div id="motivation">
+            <label><div class="option"><input class='optionRadio' type='radio' name='motivation' value='1' /><div class='optionText'>Not at all</div></div></label>
+            <label><div class="option"><input class='optionRadio' type='radio' name='motivation' value='2' /><div class='optionText'>A little</div></div></label>
+            <label><div class="option"><input class='optionRadio' type='radio' name='motivation' value='3' /><div class='optionText'>Some</div></div></label>
+            <label><div class="option"><input class='optionRadio' type='radio' name='motivation' value='4' /><div class='optionText'>Much</div></div></label>
+            <label><div class="option"><input class='optionRadio' type='radio' name='motivation' value='5' /><div class='optionText'>Very much</div></div></label>
+        </div>
+        <br><br>
+
+        <button class='butNext' onclick='SUBMIT_DEBRIEFING_Q()'>SUBMIT</button>
+    </div>
+    <div class="pageBox" id="uidPage">
+        <p id="uidText"></p>
+        <div class='smallDimText'>(This will only be used to send you the money bonus. You will not be identified, and your responses throughout the experiment will not be attached to any of your personal information.)</div>
+        <p>UID:</p>
+        <textarea id='uid' name="uid" rows="1"></textarea>
+        <br><br>
+        <p>Email:</p>
+        <textarea id='email' name="email" rows="1"></textarea>
+        <br><br>
+        <button class='butNext' onclick='SUBMIT_UID()'>SUBMIT</button>
+    </div>
+    <div class="pageBox" id="lastPage">
+        <p>Thank you for completing this experiment!</p>
+        <br><br>
+        <button class='butNext' onclick='END_TO_SONA()'>END</button>
+    </div>
+
+    <!--==========THANK YOU==========-->
+    <div class="pageBox" id="thankPage">
+        <p id="thankText">Thank you for completing this experiment!</p>
+    </div>
+</body>
