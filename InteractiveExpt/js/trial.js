@@ -80,6 +80,26 @@ class trialObject {
             $(".tryExptInstr").show();
             this.end();
         } else if(this.isSanityCheck) {
+            //MPOTTER -- SANITY CHECK "SAY" SET-UP. Look up CHANGE_INSTRUCTION for all locations (CHANGE_INSTRUCTION_EXPT)
+            //trysay buttons added to index.html These should be always present but disabled and hidden if not signaler
+            //In the same vein, clicking on an object should be disabled if not receiver
+            //If receiver, need to wait for a signal. IF signaller, no wait.
+            //Should add a time limit to signaller too -- same 10 seconds
+
+            //I think the way this will work is:
+            //Write two different setups here: one for receiver, one for signaller
+            //There will be a obj.currentPlayer that tracks, and we if/elif for either branch
+
+            //Signaller acts first, receiver waits first
+            //Signaller waits second, receiver acts second
+            //Before each trial, if there exists a sona-id pair (for 2 person), must wait for both
+            //to have hit next to move on 
+
+            //When generating the file to read, first 6 should be sonaId1 + sonaId2
+            //SORT beforehand, so that they match across both people
+
+            //Simulate the file writing by just writing the file yourself
+            //THIS FILE NEEDS TO UPDATE IF TIMEDOUT TOO
             this.createDataToSave();
             this.startTime = Date.now();
             this.trialIndex++;
@@ -1476,6 +1496,9 @@ function START_SANITY_CHECK_TRIAL() {
     SANITY_CHECK_GAMEBOARD_SETUP();
     CREATE_EXPT_BUTTONS(sanityCheck);
     DISABLE_DEFAULT_KEYS();
+
+    //mpotter test try say
+    //TRY_SAY_GAMEBOARD_SETUP(); <-- THIS FXN WORKS, CSS WILL NEED TO BE ADJUSTED
 
 
     var randUni = Math.random();
