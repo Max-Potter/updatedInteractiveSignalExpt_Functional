@@ -73,6 +73,9 @@ class trialObject {
         this.sanityMoveAttempts = 0;
         this.sanitySayAttempts = 0;
         this.sanityQuitAttempts = 0;
+
+        //for switch-role condition:
+        this.currentRole = "";
     }
 
     next(){
@@ -117,7 +120,7 @@ class trialObject {
             TRIAL_SET_UP(this);
             buttonDict = CREATE_GRID(this);
             SETUP_SCOREBOARD(this);
-            //CREATE_SIGNAL_BUTTONS(this, this.signalSpace);
+            CREATE_SIGNAL_BUTTONS(this, this.signalSpace);
             RESET_INSTRUCTION();
             var randUni = Math.random();
             var randExpo = - (EXPONENTIAL_PARAMETER) * Math.log(randUni);
@@ -1331,6 +1334,8 @@ function TRY_MOVE_GAMEBOARD_SETUP() {
     $("#tryMovePage").show();
 }
 
+
+
 function TRY_SAY_GAMEBOARD_SETUP() {
     $(".trySay").show();
     $(".tryDo").hide();
@@ -1491,11 +1496,18 @@ function START_SANITY_CHECK_TRIAL() {
     CREATE_RANDOM_LIST_FOR_EXPT(sanityCheck);
     TRIAL_SET_UP(sanityCheck);
     buttonDict = CREATE_GRID(sanityCheck);
-    //CREATE_SIGNAL_BUTTONS(sanityCheck, sanityCheck.signalSpace);
+    CREATE_SIGNAL_BUTTONS(sanityCheck, sanityCheck.signalSpace);
+
+
+    
+    
     SETUP_SCOREBOARD(sanityCheck);
     SANITY_CHECK_GAMEBOARD_SETUP();
     CREATE_EXPT_BUTTONS(sanityCheck);
     DISABLE_DEFAULT_KEYS();
+
+    //
+    //TRY_SAY_GAMEBOARD_SETUP();
 
     //mpotter test try say
     //TRY_SAY_GAMEBOARD_SETUP(); <-- THIS FXN WORKS, CSS WILL NEED TO BE ADJUSTED
@@ -1634,7 +1646,7 @@ function START_EXPT(){
     CREATE_RANDOM_LIST_FOR_EXPT(expt);
     TRIAL_SET_UP(expt);
     CREATE_GRID(expt);
-    //CREATE_SIGNAL_BUTTONS(expt, expt.signalSpace);
+    CREATE_SIGNAL_BUTTONS(expt, expt.signalSpace);
     SETUP_SCOREBOARD(expt);
     EXPT_GAMEBOARD_SETUP();
     CREATE_EXPT_BUTTONS(expt);
