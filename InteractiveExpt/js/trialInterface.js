@@ -720,7 +720,9 @@ function CREATE_SIGNAL_BUTTONS(obj, availableSignals) {
                 "pointer-events": "none"
             });
             if(!obj.buttonsCreated)
-                $("#tryButOption" + i).click(function(){RECEIVER_WALK(obj,$(this).html())});
+            //MPOTTER
+            //NEED TO CHANGE THIS FUNCTION FROM RECEIVER_WALK 
+                $("#tryButOption" + i).click(function(){RECEIVER_WALK_TWO(obj,$(this).html())});
 
             for (var j = 0; j < availableSignals.length; j++) {
                 if (availableSignals[j] == $("#tryButOption" + i).html()) {
