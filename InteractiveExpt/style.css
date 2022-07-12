@@ -230,8 +230,14 @@ body {
 }
 /* Right column */
 .tryColumn.text, .column.text {
+    /*
+    mpotter
     margin-left: 20px;
     position: relative;
+    */
+    margin-left: 650px;
+    margin-top: 100px;
+    position: absolute;
     width: 40%;
 }
 /*

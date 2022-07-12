@@ -79,6 +79,7 @@ class trialObject {
             CREATE_GRID(this);
             SETUP_SCOREBOARD(this);
             CREATE_SIGNAL_BUTTONS(this, this.signalSpace);
+            setTimeout(console.log, 100000, "timeout done");
             $("#sanityCheckInstr").show();
             this.move();
             }
@@ -112,6 +113,7 @@ class trialObject {
                 CREATE_GRID(this);
                 SETUP_SCOREBOARD(this);
                 CREATE_SIGNAL_BUTTONS(this, this.signalSpace);
+                //setTimeout(console.log, 100, "timeout done");
                 $("#exptInstr").show();
                 this.move();
             }
@@ -814,11 +816,20 @@ function START_SANITY_CHECK_TRIAL() {
 
     TRIAL_SET_UP(sanityCheck);
     CREATE_GRID(sanityCheck);
+    //
     CREATE_SIGNAL_BUTTONS(sanityCheck, sanityCheck.signalSpace);
+    //setTimeout(CREATE_SIGNAL_BUTTONS,100000,sanityCheck,sanityCheck.signalSpace);
+
+
     SETUP_SCOREBOARD(sanityCheck);
     SANITY_CHECK_GAMEBOARD_SETUP();
+    //setTimeout(CREATE_EXPT_BUTTONS,100000,sanityCheck);
     CREATE_EXPT_BUTTONS(sanityCheck);
     sanityCheck.move();
+    //setTimeout(console.log, 100000, "timeout done");
+    console.log("here");
+    
+    //setTimeout(sanityCheck.move,100000);
 }
 
 /*

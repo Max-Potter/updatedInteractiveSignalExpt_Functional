@@ -136,6 +136,7 @@
         <!-- ==========TRY SAY========== -->
         <div class="pageBox" id="trySayPage">
             <div id="trySayBox">
+                <!--
                 <div id="trySayBoard">
                         <div class="info hiddenInfo">
                             <p>Practice </p>
@@ -166,31 +167,39 @@
                     <p>1</p>
                     <p>0</p>
                 </div>
+            
                 <div class="tryColumn" id="trySayGridContainer"></div>
+        
                 <div class="tryHorizontalAxis">0 1 2 3 4 5 6 7 8</div>
+    -->
+        
                 <div class="tryColumn text">
                     <div class="tryExptInstr">
                         <div class="tryExptFade">
                             <div class="trySay">
                                 <p>Send one signal to <img class="shape" src="shape/receiver.png">:</p>
-                                <button class="butExpt" id="tryButOption0">red</button>
+                                <button class="butExpt" id="tryButOption0">orange</button>
                                 <button class="butExpt" id="tryButOption1">green</button>
                                 <button class="butExpt" id="tryButOption2">purple</button>
                                 <button class="butExpt" id="tryButOption3">circle</button>
                                 <button class="butExpt" id="tryButOption4">square</button>
                                 <button class="butExpt" id="tryButOption5">triangle</button>
                             </div>
+                            <!--
                             <div class="tryDo">
                                 <p class="inlineImg">Use arrow keys on your keyboard to move <img class="inlineShape" src="shape/signaler.png">.</p>
                             </div>
+                        -->
                         </div>
                         <div class="tryDecision"></div>
                     </div>
                 </div>
+                <!--
                 <div class="tryResult">
                     <p class="tryResultText"></p>
                     <button class="butNext" id="trySayResultBut">NEXT</button>
                 </div>
+            -->
             </div>
         </div>
     <!-- end mpotter //-->
@@ -247,13 +256,13 @@
                 <div id="sanityCheckInstr">
                     <div id="sanityCheckFade">
                         <div id="sanityCheckSay">
-                            <!--<p>Send one signal to <img class="inlineShape" src="shape/receiver.png">:</p>
-                            <button class="butExpt" id="sanityCheckButOption0">red</button>
+                            <p>Send one signal to <img class="inlineShape" src="shape/receiver.png">:</p>
+                            <button class="butExpt" id="sanityCheckButOption0">orange</button>
                             <button class="butExpt" id="sanityCheckButOption1">green</button>
                             <button class="butExpt" id="sanityCheckButOption2">purple</button>
                             <button class="butExpt" id="sanityCheckButOption3">circle</button>
                             <button class="butExpt" id="sanityCheckButOption4">square</button>
-                            <button class="butExpt" id="sanityCheckButOption5">triangle</button>-->
+                            <button class="butExpt" id="sanityCheckButOption5">triangle</button>
                         </div>
                         <div id="sanityCheckDo">
                             <!-- <p class="inlineImg">Use arrow keys on your keyboard to move <img class="shape" src="shape/signaler.png">.</p> -->
@@ -307,8 +316,9 @@
                         <li class="likert"><input id="ConfEnd" type="radio" name="ConfidenceScale" value="5" /> Very Confident
                     </ul>
                 </div>
-                <p style="text-align: center"><br><br> Feel free to pause here and take a break before moving on.</p>
-
+                
+                <!--<p style="text-align: center"><br><br> Feel free to pause here and take a break before moving on.</p>
+                -->
                 <!--  TO DO: Formatting, Remove confidence from trials where signaler moves
                 Tried creating a new div without the buttons which is called when trialstrategy = do, but it only
                 brings up a next button and no box.
@@ -462,13 +472,13 @@
                 <div id="exptInstr">
                     <div id="exptFade">
                         <div id="say">
-                           <!-- <p>Send one signal to <img class="inlineShape" src="shape/receiver.png">:</p>
-                            <button class="butExpt" id="butOption0">red</button>
+                            <p>Send one signal to <img class="inlineShape" src="shape/receiver.png">:</p>
+                            <button class="butExpt" id="butOption0">orange</button>
                             <button class="butExpt" id="butOption1">green</button>
                             <button class="butExpt" id="butOption2">purple</button>
                             <button class="butExpt" id="butOption3">circle</button>
                             <button class="butExpt" id="butOption4">square</button>
-                            <button class="butExpt" id="butOption5">triangle</button> -->
+                            <button class="butExpt" id="butOption5">triangle</button> 
                         </div>
                         <div id="do">
                             <!-- <p class="inlineImg">Use arrow keys on your keyboard to move <img class="shape" src="shape/signaler.png">.</p> -->

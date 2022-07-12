@@ -19,6 +19,12 @@ const SIMULATED_SIGNALER_DECISION_TIME = 5.2655 / 5 * 3;
 // object variables
 var instr, subj, tryMove, trySay, expt; //practice
 
+
+var idPairs = {"123":"321","321":"123"};
+var startingRoles = {};
+var partnersAction = {}
+
+
 var trial;
 var reward;
 var startTime;

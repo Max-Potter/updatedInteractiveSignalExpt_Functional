@@ -188,11 +188,11 @@ function CREATE_RANDOM_LIST_FOR_EXPT(obj) {
 */
 $(document).ready(function() {
     subj = new subjObject(subj_options);
-    subj.id = subj.getID("sonacode"); // getting subject number
-    subj.saveVisit();
-    if (subj.phone) { // asking for subj.phone will detect phone
-        BLOCK_MOBILE();
-    } else if (subj.id !== null){
+    //subj.id = subj.getID("sonacode"); // getting subject number
+    //subj.saveVisit();
+    //if (subj.phone) { // asking for subj.phone will detect phone
+    //    BLOCK_MOBILE();
+    //} else if (subj.id !== null){
         //fetches CSV from file into a string
         fetch("inputCSV/practiceTrials_pairedBarrier_20210521.csv")
             .then(response => response.text())
@@ -229,9 +229,9 @@ $(document).ready(function() {
                 });
         sanity_check_options["subj"] = subj;
         trial_options["subj"] = subj;
-    } else {
-        alert("Please make sure you are directed from SONA.")
-    }
+   // } else {
+    //    alert("Please make sure you are directed from SONA.")
+    //}
 });
 
 

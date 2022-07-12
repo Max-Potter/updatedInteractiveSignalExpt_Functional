@@ -683,32 +683,61 @@ function RESET_GAMEBOARD() {
 */
 function CREATE_EXPT_BUTTONS(obj) {
     if(obj.isTryMove && !obj.nextButCreated) {
-        $("#tryMoveMoveBut").click(function(){RECEIVER_AUTO_MOVE(obj)});
+        $("#tryMoveMoveBut").click(function(){
+            console.log("press1");
+            RECEIVER_AUTO_MOVE(obj)
+        });
         //$("#tryMoveMoveBut").click(function(){RECEIVER_WALK_TO_CHOSEN_OBJECT(obj, 0)});
-        $("#tryMoveResultBut").click(function(){NEXT_INSTR()});
+        $("#tryMoveResultBut").click(function(){
+            console.log("press1");
+            NEXT_INSTR()
+        });
         obj.nextButCreated = true;
     }
     else if (obj.isTrySay && !obj.nextButCreated) {
-        $("#trySayResultBut").click(function(){NEXT_INSTR()});
+        $("#trySayResultBut").click(function(){
+            console.log("press1");
+            NEXT_INSTR()
+        });
         obj.nextButCreated = true;
     }
     else if (obj.isSanityCheck) {
-        $("#sanityCheckMoveBut").click(function(){SIGNALER_AUTO_MOVE(obj)});
-        $("#sanityCheckResultBut").click(function(){NEXT_TRIAL(obj)});
-        $("#sanityCheckResultButDo").click(function(){NEXT_TRIAL(obj)});
+        $("#sanityCheckMoveBut").click(function(){
+            console.log("press1");
+            SIGNALER_AUTO_MOVE(obj)
+        });
+        $("#sanityCheckResultBut").click(function(){
+            console.log("press1");
+            NEXT_TRIAL(obj)
+        });
+        $("#sanityCheckResultButDo").click(function(){
+            console.log("press1");
+            NEXT_TRIAL(obj)
+        });
     }
     // else if (obj.isPracTrial) {
     //     $("#practiceQuitBut").click(function(){SHOW_QUIT_RESULT(obj)});
     //     $("#practiceResultBut").click(function(){NEXT_TRIAL(obj)});
     // }
     else if (obj.isExptTrial) {
-        $("#exptMoveBut").click(function(){SIGNALER_AUTO_MOVE(obj)});
-        $("#resultBut").click(function(){NEXT_TRIAL(obj)});
-        $("#resultButDo").click(function(){NEXT_TRIAL(obj)});
+        $("#exptMoveBut").click(function(){
+            console.log("press1");
+            SIGNALER_AUTO_MOVE(obj)
+        });
+        $("#resultBut").click(function(){
+            console.log("press1");
+            NEXT_TRIAL(obj)
+        });
+        $("#resultButDo").click(function(){
+            console.log("press1");
+            NEXT_TRIAL(obj)
+        });
     }
+
 }
 
 function CREATE_SIGNAL_BUTTONS(obj, availableSignals) {
+    console.log("avail signals: ", availableSignals);
     for (var i = 0; i < MAX_SAY_OPTION; i++) {
         if(obj.isTrySay || obj.isTryMove){
             $("#tryButOption" + i).css({
@@ -722,7 +751,10 @@ function CREATE_SIGNAL_BUTTONS(obj, availableSignals) {
             if(!obj.buttonsCreated)
             //MPOTTER
             //NEED TO CHANGE THIS FUNCTION FROM RECEIVER_WALK 
-                $("#tryButOption" + i).click(function(){RECEIVER_WALK_TWO(obj,$(this).html())});
+                $("#tryButOption" + i).click(function(){
+                    console.log("pressed");
+                    //RECEIVER_WALK_TWO(obj,$(this).html())
+                });
 
             for (var j = 0; j < availableSignals.length; j++) {
                 if (availableSignals[j] == $("#tryButOption" + i).html()) {
@@ -745,16 +777,65 @@ function CREATE_SIGNAL_BUTTONS(obj, availableSignals) {
                 "box-shadow": "none",
                 "pointer-events": "none"
             });
-            if(!obj.buttonsCreated)
-                $("#sanityCheckButOption" + i).click(function(){RECEIVER_WALK(obj,$(this).html())});
+            if(!obj.buttonsCreated){
+                console.log("button make");
+                $("#sanityCheckButOption" + i).click(function(){
+                    //mpotter
+                    console.log("pressed");
+                    console.log("is: ", obj.isExptTrial);
+                    partnersAction[obj.sonaID] = $(this).html();
+                    console.log(partnersAction[obj.sonaID]);
+                    $("#sanityCheckSay").hide();
+                    CHANGE_INSTRUCTION($(this).html());
+                    $("#instruction_2").show();
+                    console.log(partnersAction);
+
+                    //$("#instrText").show();
+                    //$("#instrNextBut").show();
+
+                    var i = 1
+
+                    //mpotter 
+                    //BUTTONS FOR SIGNALLER WALK
+                    cancelTimeout();
+
+                    while(partnersAction[obj.partner] == "wait"){
+                        console.log("waiting");
+                        i = i + 1;
+                        if(i == 10){
+                            partnersAction[obj.partner] = [2,0];
+                        }
+                    }
+
+                    if(partnersAction[obj.partner] != "timeout"){
+
+                    PSEUDO_RECEIVER_WALK_TWO(obj, partnersAction[obj.partner]);
+                    }
+                    else{
+                        timeLimitedReached(obj)
+                    }
+                    
+
+
+
+
+                    //RECEIVER_WALK_TWO(obj,$(this).html());
+                
+                });
+                    //RECEIVER_WALK_TWO(obj,$(this).html())});
+            }
             for (var j = 0; j < availableSignals.length; j++) {
+                console.log("Try");
+                console.log(availableSignals[j]);
+                console.log($("#sanityCheckButOption" + i).html());
                 if (availableSignals[j] == $("#sanityCheckButOption" + i).html()) {
+                    console.log("trig");
                     $("#sanityCheckButOption" + i).css({
                         "border": "revert",
                         "opacity": 1,
                         "background": "#9D8F8F",
                         "box-shadow": "2px 2px 4px rgba(0, 0, 0, 0.25)",
-                        "pointer-events": "revert",
+                        "pointer-events": "auto",
                         "cursor": "pointer"
                     });
                 }
@@ -794,7 +875,39 @@ function CREATE_SIGNAL_BUTTONS(obj, availableSignals) {
                 "pointer-events": "none"
             });
             if(!obj.buttonsCreated)
-                $("#butOption" + i).click(function(){RECEIVER_WALK(obj,$(this).html())});
+                $("#butOption" + i).click(function(){
+                    console.log("pressed");
+                    console.log("is: ", obj.isExptTrial);
+                    partnersAction[obj.sonaID] = $(this).html();
+                    console.log(partnersAction[obj.sonaID]);
+                    $("#say").hide();
+                    CHANGE_INSTRUCTION_EXPT($(this).html());
+                    
+                    console.log(partnersAction);
+
+                    //$("#instrText").show();
+                    //$("#instrNextBut").show();
+
+                    var i = 1
+
+                    //mpotter 
+                    //BUTTONS FOR SIGNALLER WALK
+                    cancelTimeout();
+
+                    while(partnersAction[obj.partner] == "wait"){
+                        console.log("waiting");
+                        i = i + 1;
+                        if(i == 10){
+                            partnersAction[obj.partner] = [2,0];
+                        }
+                    }
+
+                    PSEUDO_RECEIVER_WALK_TWO(obj, partnersAction[obj.partner]);
+
+                    
+
+                    //RECEIVER_WALK_TWO(obj,$(this).html())
+                });
             for (var j = 0; j < availableSignals.length; j++) {
                 if (availableSignals[j] == $("#butOption" + i).html()) {
                     $("#butOption" + i).css({
@@ -1073,7 +1186,12 @@ function SHOW_WIN_RESULT_BOX_FOR_SAY(obj,win) {
             $(".tryResultText").html("<img class='inlineShape' src='' + SHAPE_DIR + 'receiver.png'/>" + " lands on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>" + "<br><br>Congratulations! You reached the target!");
         } else {
             //console.log("1");
-            $("#sanityCheckResultText").html("You did not answer within the time limit. Please respond within 10 seconds of the signal being sent!");
+            if(obj.currentRole == "signaller"){
+                $("#sanityCheckResultText").html("You did not answer within the time limit. Please send a signal within 10 seconds!");
+                }
+            else{
+                    $("#sanityCheckResultText").html("You did not answer within the time limit. Please respond within 10 seconds of the signal being sent!");
+                }
             //var toHide = document.getElementById("sanityCheckResult");
             //toHide.style.display = "none";
             //var landedItem = $('#shape'+ obj.receiverLocation[0] + 'v' + obj.receiverLocation[1] + ' .shape').attr('src');
@@ -1099,21 +1217,38 @@ function SHOW_WIN_RESULT_BOX_FOR_SAY(obj,win) {
         var reward;
         if(win){ //RECIEVER MOVES TO TARGET RESULT BOX
             var landedItem = $('#shape'+ obj.receiverLocation[0] + 'v' + obj.receiverLocation[1] + ' .shape').attr('src');
-            var toShow = document.getElementById("sanityCheckLikert");
-            var toShow2 = document.getElementById("sanityLikertScale");
-            toShow.style.display = "";
-            toShow2.style.display = "";
 
             // if (trialStrategy == "ambiguous" || trialStrategy == "do" || trialStrategy !== obj.signal){
                 //$("#sanityCheckResultText").html("You took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>" + "<br>Congratulations! It is the target! <br>" + getSanityCheckFeedback(obj, trialStrategy));
-                $("#sanityCheckResultText").html("You took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>");
-            // } else {
+                if(obj.currentRole == "signaller"){
+                    $("#sanityCheckResultText").html('<img class="inlineShape" src="' + SHAPE_DIR + 'receiver.png"/>' +" took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>");
+                    var toHide = document.getElementById("sanityCheckLikert");
+                    var toHide2 = document.getElementById("sanityLikertScale");
+                   //style = toHide2.style.display
+                    //console.log(style);
+                    //console.log(toHide.style.display == "");
+                    toHide.style.display = "none";
+                    toHide2.style.display = "none";
+                }
+                else{
+                    var toShow = document.getElementById("sanityCheckLikert");
+                    var toShow2 = document.getElementById("sanityLikertScale");
+                    toShow.style.display = "";
+                    toShow2.style.display = "";
+                    $("#sanityCheckResultText").html("You took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>");
+                }
+                // } else {
             //     $("#sanityCheckResultText").html("You took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>");
             // }
             reward = REWARD;
         } else {
             //console.log("2");
-            $("#sanityCheckResultText").html("You did not answer within the time limit. Please respond within 10 seconds of the signal being sent!");
+            if(obj.currentRole == "signaller"){
+            $("#sanityCheckResultText").html("You did not answer within the time limit. Please send a signal within 10 seconds!");
+            }
+            else{
+                $("#sanityCheckResultText").html("You did not answer within the time limit. Please respond within 10 seconds of the signal being sent!");
+            }
             var toHide = document.getElementById("sanityCheckLikert");
             var toHide2 = document.getElementById("sanityLikertScale");
             //style = toHide2.style.display
@@ -1127,6 +1262,8 @@ function SHOW_WIN_RESULT_BOX_FOR_SAY(obj,win) {
             //$("#sanityCheckResultText").html("You took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9' src='" + landedItem + "'>" + "<br>It is not the target! <br>" + getSanityCheckFeedback(obj, trialStrategy) + "<br>Good luck on your next round!");
             reward = 0;
         }
+
+
         $("#sanityCheckReward").html("$" + reward.toFixed(2));
         $("#sanityCheckRoundBonus").html(GET_ROUND_BONUS_STRING(reward - obj.cost));
         $("#sanityCheckTotalBonusAfter").html("$" + obj.totalScore.toFixed(2));
@@ -1152,16 +1289,38 @@ function SHOW_WIN_RESULT_BOX_FOR_SAY(obj,win) {
         $(".stepCostInResult").html("Cost ($" + STEP_COST.toFixed(2) + "/Step):");
         if(win){
             var landedItem = $('#shape'+ obj.receiverLocation[0] + 'v' + obj.receiverLocation[1] + ' .shape').attr('src');
-            var toShow = document.getElementById("exptLikert");
-            var toShow2 = document.getElementById("exptLikertScale");
-            toShow.style.display = "";
-            toShow2.style.display = "";
+
+
+            if(obj.currentRole == "signaller"){
+                $("#resultText").html('<img class="inlineShape" src="' + SHAPE_DIR + 'receiver.png"/>' +" took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>");
+                var toHide = document.getElementById("exptLikert");
+                var toHide2 = document.getElementById("exptLikertScale");
+               //style = toHide2.style.display
+                //console.log(style);
+                //console.log(toHide.style.display == "");
+                toHide.style.display = "none";
+                toHide2.style.display = "none";
+            }
+            else{
+                var toShow = document.getElementById("exptLikert");
+                var toShow2 = document.getElementById("exptLikertScale");
+                toShow.style.display = "";
+                toShow2.style.display = "";
+                $("#resultText").html("You took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>");
+            }
+
+
 
             $("#resultText").html("You took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>");
             reward = REWARD;
         } else {
             //console.log("3");
-            $("#resultText").html("You did not answer within the time limit. Please respond within 10 seconds of the signal being sent!");
+            if(obj.currentRole == "signaller"){
+                $("#resultText").html("You did not answer within the time limit. Please send a signal within 10 seconds!");
+                }
+            else{
+                    $("#resultText").html("You did not answer within the time limit. Please respond within 10 seconds of the signal being sent!");
+                }
             var toHide = document.getElementById("exptLikert");
             var toHide2 = document.getElementById("exptLikertScale");
             toHide.style.display = "none";
@@ -1182,35 +1341,64 @@ function SHOW_WIN_RESULT_BOX_FOR_SAY(obj,win) {
         var reward;
         if(win){ //RECIEVER MOVES TO TARGET RESULT BOX
             var landedItem = $('#shape'+ obj.receiverLocation[0] + 'v' + obj.receiverLocation[1] + ' .shape').attr('src');
-            var toShow = document.getElementById("sanityCheckLikert");
-            var toShow2 = document.getElementById("sanityLikertScale");
-            toShow.style.display = "";
-            toShow2.style.display = "";
 
-            // if (trialStrategy == "ambiguous" || trialStrategy == "do" || trialStrategy !== obj.signal){
-                //$("#sanityCheckResultText").html("You took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>" + "<br>Congratulations! It is the target! <br>" + getSanityCheckFeedback(obj, trialStrategy));
+
+
+            if(obj.currentRole == "signaller"){
+                $("#sanityCheckResultText").html('<img class="inlineShape" src="' + SHAPE_DIR + 'receiver.png"/>' +" took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>");
+                var toHide = document.getElementById("sanityCheckLikert");
+                var toHide2 = document.getElementById("sanityLikertScale");
+               //style = toHide2.style.display
+                //console.log(style);
+                //console.log(toHide.style.display == "");
+                toHide.style.display = "none";
+                toHide2.style.display = "none";
+            }
+            else{
+                var toShow = document.getElementById("sanityCheckLikert");
+                var toShow2 = document.getElementById("sanityLikertScale");
+                toShow.style.display = "";
+                toShow2.style.display = "";
                 $("#sanityCheckResultText").html("You took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>");
-            // } else {
-            //     $("#sanityCheckResultText").html("You took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>");
-            // }
+            }
 
-            var toShow = document.getElementById("exptLikert");
-            var toShow2 = document.getElementById("exptLikertScale");
-            toShow.style.display = "";
-            toShow2.style.display = "";
-
-            $("#resultText").html("You took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>");
-
+            if(obj.currentRole == "signaller"){
+                $("#resultText").html('<img class="inlineShape" src="' + SHAPE_DIR + 'receiver.png"/>' +" took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>");
+                var toHide = document.getElementById("exptLikert");
+                var toHide2 = document.getElementById("exptLikertScale");
+               //style = toHide2.style.display
+                //console.log(style);
+                //console.log(toHide.style.display == "");
+                toHide.style.display = "none";
+                toHide2.style.display = "none";
+            }
+            else{
+                var toShow = document.getElementById("exptCheckLikert");
+                var toShow2 = document.getElementById("exptLikertScale");
+                toShow.style.display = "";
+                toShow2.style.display = "";
+                $("#resultText").html("You took " + obj.step + " steps to land on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>");
+            }
             reward = REWARD;
         } else {
             //console.log("2");
             //console.log(obj.isExptTrial);
-            $("#sanityCheckResultText").html("You did not answer within the time limit. Please respond within 10 seconds of the signal being sent!");
+            if(obj.currentRole == "signaller"){
+                $("#sanityCheckResultText").html("You did not answer within the time limit. Please send a signal within 10 seconds!");
+                }
+            else{
+                    $("#sanityCheckResultText").html("You did not answer within the time limit. Please respond within 10 seconds of the signal being sent!");
+                }
             var toHide = document.getElementById("sanityCheckLikert");
             var toHide2 = document.getElementById("sanityLikertScale");
             toHide.style.display = "none";
             toHide2.style.display = "none";
-            $("#resultText").html("You did not answer within the time limit. Please respond within 10 seconds of the signal being sent!");
+            if(obj.currentRole == "signaller"){
+                $("#resultText").html("You did not answer within the time limit. Please send a signal within 10 seconds!");
+                }
+            else{
+                    $("#resultText").html("You did not answer within the time limit. Please respond within 10 seconds of the signal being sent!");
+                }
             toHide = document.getElementById("exptLikert");
             toHide2 = document.getElementById("exptLikertScale");
             toHide.style.display = "none";

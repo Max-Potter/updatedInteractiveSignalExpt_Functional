@@ -75,7 +75,30 @@ class trialObject {
         this.sanityQuitAttempts = 0;
 
         //for switch-role condition:
-        this.currentRole = "";
+        //this.idPairs = {"123":"321","321":"123"};
+        //this.startingRole = {"123":"signaller","321":"receiver"};
+
+
+        //THE WAY IT WILL WORK: ODD SONAIDs WILL BE SIGNALLER
+
+        if (this.sonaID % 2){
+            startingRoles[this.sonaID] = "signaller";
+        }
+        else{
+            startingRoles[this.sonaID] = "receiver";
+        }
+        this.currentRole = startingRoles[this.sonaID];
+        this.partner = idPairs[this.sonaID];
+        partnersAction[this.sonaID] = "wait";
+        
+
+        //DELETE
+        this.sonaID = "123";
+        this.currentRole = "receiver";
+        console.log(this.currentRole);
+        this.partner = "321";
+        partnersAction[this.partner] = "wait";
+        
     }
 
     next(){
@@ -127,11 +150,56 @@ class trialObject {
             //var signal = "red";
             //var signal = "do";
             //var signal = this.inputData[this.trialIndex]["predSignalNoActionUtility"];
+           
+            partnersAction[this.sonaID] = "wait";
+            partnersAction[this.partner] = "wait";
+
+            if (this.currentRole == "signaller"){
+                $("#sanityCheckSay").show();
+                HIDE_INSTRUCTIONS();
+                //CREATE_SIGNAL_BUTTONS();
+                //$(".trySay").show();
+                //$("#trySayPage").show();
+                //TRY_SAY_GAMEBOARD_SETUP();
+                setResponseConstraint(this);
+        
+        
+        
+        
+                this.move();
+        
+        
+            }
+            else{
+                $("#sanityCheckSay").hide();
+            
+            
+            
             var signal = this.inputData[this.randomizedTrialList[this.trialIndex]]["predSignalNoActionUtility"];
             //console.log("prechange");
             //console.log(signal);
+
+            var i = 1; 
+            while(partnersAction[this.partner] == "wait"){
+                console.log("waiting");
+                i = i + 1;
+                if(i == 10){
+                    partnersAction[this.partner] = "green";
+                    }
+            }
+            //mpotter
+        
+            signal = partnersAction[this.partner];
+
+
+
+
             var waitoutTime = SIMULATED_SIGNALER_DECISION_TIME*1000;
+
+            //FORMAT CHANGE
             setTimeout(CHANGE_INSTRUCTION, waitoutTime + randExpo * 300, signal);
+            
+            
             if(signal == "do"){
                 setTimeout(SIGNALER_WALK_TWO,waitoutTime + randExpo*300,sanityCheck);
                 RECORD_SIMULATED_SIG_DECISION_TIME(this, (waitoutTime + randExpo*300)/1000);
@@ -145,7 +213,8 @@ class trialObject {
             //ENABLE_GRID_BUTTONS(buttonDict);
             $("#sanityCheckInstr").show();
             this.move();
-            }
+        }
+        
         }
         // else if(this.isPracTrial) {
         //     this.trialIndex++;
@@ -161,6 +230,7 @@ class trialObject {
         //         this.move();
         //     }
         // }
+    }
         else if(this.isExptTrial) {
             this.createDataToSave();
             this.startTime = Date.now();
@@ -185,8 +255,47 @@ class trialObject {
                 var randExpo = - (EXPONENTIAL_PARAMETER) * Math.log(randUni);
                 //var signal = "red";
                 //var signal = "do";
+                partnersAction[this.sonaID] = "wait";
+                partnersAction[this.partner] = "wait";
+
+                if (this.currentRole == "signaller"){
+                    $("#say").show();
+                    HIDE_INSTRUCTIONS();
+                    //CREATE_SIGNAL_BUTTONS();
+                    //$(".trySay").show();
+                    //$("#trySayPage").show();
+                    //TRY_SAY_GAMEBOARD_SETUP();
+                    setResponseConstraint(this);
+            
+            
+            
+            
+                    this.move();
+            
+            
+                }
+                else{
+                    $("#say").hide();
+
+
+
+
+
                 var signal = this.inputData[this.randomizedTrialList[this.trialIndex]]["predSignalNoActionUtility"];
                 //console.log(signal);
+                var i = 1;
+                while(partnersAction[this.partner] == "wait"){
+                    console.log("waiting");
+                    i = i + 1;
+                    if(i == 10){
+                        partnersAction[this.partner] = "green";
+                        }
+                }
+                //mpotter
+            
+                signal = partnersAction[this.partner];
+
+
                 var waitoutTime = SIMULATED_SIGNALER_DECISION_TIME*1000;
                 setTimeout(CHANGE_INSTRUCTION_EXPT, waitoutTime + randExpo * 300, signal);
                 if(signal == "do"){
@@ -200,6 +309,7 @@ class trialObject {
                 }
                 $("#exptInstr").show();
                 this.move();
+            }
             }
         }
     }
@@ -317,6 +427,7 @@ function timeLimitReached(obj){
     RECORD_RECEIVER_ACHIEVED(obj, "timedout");
     UPDATE_RESULT_IN_OBJ(obj, 0);
     //console.log("init");
+    obj.partnersAction[obj.sonaID] = "timeout";
     SHOW_WIN_RESULT_BOX_FOR_SAY(obj, false);
     //console.log("init 2");
     obj.step = 0;
@@ -937,7 +1048,6 @@ function SIGNALER_ARRIVE_EUCLIDEAN(obj, finalDestination){
         RECORD_RECEIVER_ACHIEVED(obj);
         UPDATE_RESULT_IN_OBJ(obj, REWARD);
         SHOW_WIN_RESULT_BOX_FOR_MOVE(obj, true);
-
         obj.pathIndex = 0;
         obj.step = 0;
 }
@@ -1035,6 +1145,77 @@ function RECEIVER_WALK_TWO(obj, myButton) {
     setTimeout(RECEIVER_WALK_TO_CHOSEN_OBJECT_EUCLIDEAN, 500, obj, totalSteps, eachStep, eachCoordStep, finalDestination);
 }
 
+function PSEUDO_RECEIVER_WALK_TWO(obj, posArray) {
+    DISABLE_HOVER_INFO();
+    if(obj.isTrySay) {
+        $("#instrBackBut").css({
+            "cursor": "auto",
+            "pointer-events": "none"
+        });
+        $("#instrNextBut").css({
+            "cursor": "auto",
+            "pointer-events": "none"
+        });
+    }
+    //console.log("index: ", obj.trialIndex);
+    var intent = getHTMLandCoordsofIntendedItem(obj);
+    obj.consecutiveQuitNum = 0;
+    DISABLE_DEFAULT_KEYS();
+    RECORD_PARTI_DECISION_DATA(obj, "say");
+    RECORD_SIGNAL_DATA(obj, "say");
+    CHANGE_IN_TRIAL_INSTR("say");
+    obj.allowMove = false;
+
+    //RECORDING
+    var row = posArray[0];
+    var col = posArray[1];
+    selectedItem = obj.gridArray[row][col];
+    console.log("True row/col: ", row, col);
+
+    var recSquare = document.querySelector("#shape"+ obj.receiverLocation[0] + "v" + obj.receiverLocation[1]);
+    var selectSquare = document.querySelector("#shape"+ String(row) + "v" + String(col));
+    //console.log("recSquare style: ", recSquare.style.left);
+    //recSquare.style.position = "absolute";
+    //recSquare.style.left = "300px";
+    //https://stackoverflow.com/questions/614962/how-to-insert-an-element-in-div-at-position-x-y
+    //console.log("recSquare style: ", recSquare.style.left);
+
+    var recRect = recSquare.getBoundingClientRect();
+    var selectRect = selectSquare.getBoundingClientRect();
+    //console.log("position of selectedItem: ", [selectRect.x,selectRect.y]);
+    //console.log("position of recLocation: ", [recRect.x,recRect.y]);
+    RECORD_CHOSEN_ITEM(obj, selectedItem);
+
+
+    //mpotter
+    //setTimeout(RECEIVER_WALK_TO_CHOSEN_OBJECT, 500, obj, myButton);
+
+    totalSteps = Math.round(euclideanDistance((obj.receiverLocation), [row,col]));
+    //console.log("toitalsteps:", totalSteps);
+    eachStep = calculate_Euclidean_Steps(obj, row, col, "receiver");
+    eachCoordStep = calculate_Euclidean_Steps_IntermittentCoord(obj, selectRect.x, selectRect.y, "receiver", totalSteps);
+    //console.log(eachStep);
+    var finalDestination = [row,col];
+
+    myRecPic = document.getElementById('receiverImg');
+    //YOU NEED TO MANUALLY SET ITS TOP AND LEFT I THINK
+    myRecPic.style.top = recRect.y + "px";
+    myRecPic.style.left = recRect.x + 10 + "px" ;
+    myRecPic.style.zIndex = "1000"; 
+    //myRecPic.style.top = "50px";
+    //myRecPic.style.left = "50px";
+    //console.log("recpic: ", myRecPic);
+    //console.log("visibility: ", myRecPic.style.visibility);
+    //console.log("top, and left", myRecPic.style.top, myRecPic.style.left);
+    myRecPic.style.visibility = "visible";
+    //console.log("total steps again:", totalSteps);
+    
+
+
+
+    setTimeout(RECEIVER_WALK_TO_CHOSEN_OBJECT_EUCLIDEAN, 500, obj, totalSteps, eachStep, eachCoordStep, finalDestination);
+}
+
 //mpotter
 function RECEIVER_WALK_TO_CHOSEN_OBJECT_EUCLIDEAN(obj, totalSteps, eachStep, eachCoordStep, finalDestination){
     //console.log("rec euclid call", totalSteps);
@@ -1084,6 +1265,13 @@ function RECEIVER_ARRIVE_EUCLIDEAN(obj, finalDestination){
         RECORD_RECEIVER_ACHIEVED(obj, "achieved");
         UPDATE_RESULT_IN_OBJ(obj, REWARD);
         SHOW_WIN_RESULT_BOX_FOR_SAY(obj, true);
+        //if(obj.currentRole == "receiver"){
+         //   SHOW_WIN_RESULT_BOX_FOR_SAY(obj, true);
+        //}
+        //else{
+        //    console.log("mover");
+         //   SHOW_WIN_RESULT_BOX_FOR_MOVE(obj, true);
+        //}
         obj.step = 0;
         obj.pathIndex = 0;
 }
@@ -1510,15 +1698,58 @@ function START_SANITY_CHECK_TRIAL() {
     //TRY_SAY_GAMEBOARD_SETUP();
 
     //mpotter test try say
-    //TRY_SAY_GAMEBOARD_SETUP(); <-- THIS FXN WORKS, CSS WILL NEED TO BE ADJUSTED
-
 
     var randUni = Math.random();
     var randExpo = - (EXPONENTIAL_PARAMETER) * Math.log(randUni);
+    console.log("role");
+    console.log(sanityCheck.currentRole);
+    console.log(sanityCheck.idPairs);
+    console.log(sanityCheck.subjID);
+    
+    partnersAction[sanityCheck.sonaID] = "wait";
+    partnersAction[sanityCheck.partner] = "wait";
+
+    if (sanityCheck.currentRole == "signaller"){
+        $("#sanityCheckSay").show();
+        HIDE_INSTRUCTIONS();
+        setResponseConstraint(sanityCheck);
+        //CREATE_SIGNAL_BUTTONS();
+        //$(".trySay").show();
+        //$("#trySayPage").show();
+        //TRY_SAY_GAMEBOARD_SETUP();
+
+
+
+
+        sanityCheck.move();
+
+
+    }
+    else {
+        $("#sanityCheckSay").hide();
+
+
+
+
+    //$("sanityCheckDo").hide();
+    //TRY_SAY_GAMEBOARD_SETUP(); //<-- THIS FXN WORKS, CSS WILL NEED TO BE ADJUSTED
     //
     //console.log(sanityCheck.trialIndex);
     //var signal = sanityCheck.inputData[sanityCheck.trialIndex]["predSignalNoActionUtility"];
     var signal = sanityCheck.inputData[sanityCheck.randomizedTrialList[sanityCheck.trialIndex]]["predSignalNoActionUtility"];
+    var i = 1;
+
+    while(partnersAction[sanityCheck.partner] == "wait"){
+        console.log("waiting");
+        i = i + 1;
+        if(i == 10){
+            partnersAction[sanityCheck.partner] = "green";
+            }
+    }
+    //mpotter
+
+    signal = partnersAction[sanityCheck.partner];
+    
     //console.log(newsignal);
     //
     //console.log("prechange");
@@ -1542,6 +1773,7 @@ function START_SANITY_CHECK_TRIAL() {
     //setTimeout(RECEIVER_WALK_AFTER_WAIT, randExpo * 1000, obj, signal);
     sanityCheck.move();
 }
+}
 
 function CHANGE_INSTRUCTION(signal){
     //console.log(signal);
@@ -1562,6 +1794,14 @@ function CHANGE_INSTRUCTION(signal){
 function RESET_INSTRUCTION(){
     $("#instruction_2").hide();
     $("#instruction").show();
+}
+
+//mpotter
+function HIDE_INSTRUCTIONS(){
+    $("#instruction_2").hide();
+    $("#instruction").hide();
+    $("#exptInstruct1").hide();
+    $("exptInstruct2").hide();
 }
 
 function CHANGE_INSTRUCTION_EXPT(signal){
@@ -1653,8 +1893,44 @@ function START_EXPT(){
 
     var randUni = Math.random();
     var randExpo = - (EXPONENTIAL_PARAMETER) * Math.log(randUni);
+
+    partnersAction[expt.sonaID] = "wait";
+    partnersAction[expt.partner] = "wait";
+
+    if (expt.currentRole == "signaller"){
+        $("#say").show();
+        HIDE_INSTRUCTIONS();
+        //CREATE_SIGNAL_BUTTONS();
+        //$(".trySay").show();
+        //$("#trySayPage").show();
+        //TRY_SAY_GAMEBOARD_SETUP();
+        setResponseConstraint(expt);
+
+
+
+
+        expt.move();
+
+
+    }
+    else{
+        $("#say").hide();
     var signal = expt.inputData[expt.randomizedTrialList[expt.trialIndex]]["predSignalNoActionUtility"];
     //var signal = "red";
+
+    var i = 1;
+    while(partnersAction[expt.partner] == "wait"){
+        console.log("waiting");
+        i = i + 1;
+        if(i == 10){
+            partnersAction[expt.partner] = "green";
+            }
+    }
+    //mpotter
+
+    signal = partnersAction[expt.partner];
+
+
     var waitoutTime = SIMULATED_SIGNALER_DECISION_TIME*1000;
     setTimeout(CHANGE_INSTRUCTION_EXPT, waitoutTime + randExpo * 300, signal);
     if(signal == "do"){
@@ -1669,6 +1945,7 @@ function START_EXPT(){
 
 
     expt.move();
+}
 
     expt.startTime = Date.now();
     expt.exptSignalerPath = "N/A";
@@ -1677,5 +1954,6 @@ function START_EXPT(){
     expt.confidence = "N/A";
     expt.hoverItems = "N/A";
     $("#exptPage").show();
+
 }
 

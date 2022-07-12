@@ -402,7 +402,9 @@ function RESET_GAMEBOARD() {
 */
 function CREATE_EXPT_BUTTONS(obj) {
     if(obj.isTryMove && !obj.nextButCreated) {
-        $("#tryMoveMoveBut").click(function(){SIGNALER_AUTO_MOVE(obj)});
+        $("#tryMoveMoveBut").click(function(){
+            console.log("press");
+            SIGNALER_AUTO_MOVE(obj)});
         $("#tryMoveResultBut").click(function(){NEXT_INSTR()});
         obj.nextButCreated = true;
     }
@@ -411,7 +413,9 @@ function CREATE_EXPT_BUTTONS(obj) {
         obj.nextButCreated = true;
     }
     else if (obj.isSanityCheck) {
-        $("#sanityCheckMoveBut").click(function(){SIGNALER_AUTO_MOVE(obj)});
+        $("#sanityCheckMoveBut").click(function(){
+            console.log("press");
+            SIGNALER_AUTO_MOVE(obj)});
         $("#sanityCheckResultBut").click(function(){NEXT_TRIAL(obj)});
     }
     // else if (obj.isPracTrial) {
@@ -419,7 +423,9 @@ function CREATE_EXPT_BUTTONS(obj) {
     //     $("#practiceResultBut").click(function(){NEXT_TRIAL(obj)});
     // }
     else if (obj.isExptTrial) {
-        $("#exptMoveBut").click(function(){SIGNALER_AUTO_MOVE(obj)});
+        $("#exptMoveBut").click(function(){
+            console.log("press");
+            SIGNALER_AUTO_MOVE(obj)});
         $("#resultBut").click(function(){NEXT_TRIAL(obj)});
     }
 }
@@ -460,7 +466,10 @@ function CREATE_SIGNAL_BUTTONS(obj, availableSignals) {
                 "pointer-events": "none"
             });
             if(!obj.buttonsCreated)
-                $("#sanityCheckButOption" + i).click(function(){RECEIVER_WALK(obj,$(this).html())});
+                $("#sanityCheckButOption" + i).click(function(){
+                    console.log("button button");
+                    
+                    RECEIVER_WALK(obj,$(this).html())});
             for (var j = 0; j < availableSignals.length; j++) {
                 if (availableSignals[j] == $("#sanityCheckButOption" + i).html()) {
                     $("#sanityCheckButOption" + i).css({
