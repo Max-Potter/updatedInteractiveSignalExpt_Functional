@@ -90,13 +90,16 @@ class trialObject {
         this.currentRole = startingRoles[this.sonaID];
         this.partner = idPairs[this.sonaID];
         partnersAction[this.sonaID] = "wait";
+        partnersLists[this.sonaID] = {"sanity": false, "expt":false}
         
 
         //DELETE
         this.sonaID = "123";
-        this.currentRole = "receiver";
+        this.currentRole = "signaller";
         console.log(this.currentRole);
         this.partner = "321";
+        partnersLists[this.sonaID] = {"sanity": false, "expt":false}
+        partnersLists[this.partner] = {"sanity": false, "expt":false}
         partnersAction[this.partner] = "wait";
         
     }
@@ -163,7 +166,13 @@ class trialObject {
             partnersAction[this.partner] = "wait";
 
             if (this.currentRole == "signaller"){
+                var intent = this.inputData[this.randomizedTrialList[this.trialIndex]].intention;
+                intent = intent.slice(0,-2);
+                var shapePath = PIC_DICT[intent];
+        
+                $("#sanityTarget").html("Target is: " + '<img class ="inlineShape" src="' + shapePath+ '">' );
                 $("#sanityCheckSay").show();
+
                 HIDE_INSTRUCTIONS();
                 //CREATE_SIGNAL_BUTTONS();
                 //$(".trySay").show();
@@ -230,6 +239,12 @@ class trialObject {
                 partnersAction[this.partner] = "wait";
 
                 if (this.currentRole == "signaller"){
+                    var intent = this.inputData[this.randomizedTrialList[this.trialIndex]].intention;
+                    intent = intent.slice(0,-2);
+                    var shapePath = PIC_DICT[intent];
+        
+                    $("#exptTarget").html("Target is: " + '<img class ="inlineShape" src="' + shapePath+ '">' );
+        
                     $("#say").show();
                     HIDE_INSTRUCTIONS();
                     //CREATE_SIGNAL_BUTTONS();
@@ -875,6 +890,7 @@ function ENABLE_GRID_BUTTONS(buttonDict){
 
 //mpotter
 function SIGNALER_WALK_TWO(obj){
+    partnersAction[obj.sonaID] = "do";
     DISABLE_HOVER_INFO();
     if(obj.isTrySay) {
         $("#instrBackBut").css({
@@ -1840,9 +1856,24 @@ function START_SANITY_CHECK_TRIAL() {
     // sanityCheck.inputData.push(conditionalCommunicateTrial, conditionalQuitTrial, conditionalDoTrial);
     // sanityCheck.randomizedTrialList.push("6", "7", "8");
 
+    if(sanityCheck.partner in partnersLists){
 
 
+    if(partnersLists[sanityCheck.partner]["sanity"] == false){
+        CREATE_RANDOM_LIST_FOR_EXPT(sanityCheck);
+        console.log(partnersLists);
+        partnersLists[sanityCheck.sonaID]["sanity"] = sanityCheck.randomizedTrialList;
+    }
+    else{
+        sanityCheck.randomizedTrialList = partnersLists[sanityCheck.partner]["sanity"];
+    }
+}
+else{
+    console.log("partner invalid");
     CREATE_RANDOM_LIST_FOR_EXPT(sanityCheck);
+
+}
+    
     TRIAL_SET_UP(sanityCheck);
     buttonDict = CREATE_GRID(sanityCheck);
     CREATE_SIGNAL_BUTTONS(sanityCheck, sanityCheck.signalSpace);
@@ -1871,6 +1902,11 @@ function START_SANITY_CHECK_TRIAL() {
     partnersAction[sanityCheck.partner] = "wait";
 
     if (sanityCheck.currentRole == "signaller"){
+        var intent = sanityCheck.inputData[sanityCheck.randomizedTrialList[sanityCheck.trialIndex]].intention;
+        intent = intent.slice(0,-2);
+        var shapePath = PIC_DICT[intent];
+        
+        $("#sanityTarget").html("Target is: " + '<img class ="inlineShape" src="' + shapePath+ '">' );
         $("#sanityCheckSay").show();
         HIDE_INSTRUCTIONS();
         setResponseConstraint(sanityCheck);
@@ -2009,7 +2045,24 @@ function START_EXPT(){
     $("#exptPracticeInfo").css("opacity", 0);
     expt.isExptTrial = true;
     expt.trialN = expt.inputData.length;
+
+    if(expt.partner in partnersLists){
+
+
+    if(partnersLists[expt.partner]["expt"] == false){
+        CREATE_RANDOM_LIST_FOR_EXPT(expt);
+        partnersLists[expt.sonaID]["expt"] = expt.randomizedTrialList;
+    }
+    else{
+        expt.randomizedTrialList = partnersLists[expt.partner]["expt"];
+    }
+}
+else{
+    console.log("partner invalid")
     CREATE_RANDOM_LIST_FOR_EXPT(expt);
+}
+
+
     TRIAL_SET_UP(expt);
     CREATE_GRID(expt);
     CREATE_SIGNAL_BUTTONS(expt, expt.signalSpace);
@@ -2024,6 +2077,12 @@ function START_EXPT(){
     partnersAction[expt.partner] = "wait";
 
     if (expt.currentRole == "signaller"){
+        var intent = expt.inputData[expt.randomizedTrialList[expt.trialIndex]].intention;
+        intent = intent.slice(0,-2);
+        var shapePath = PIC_DICT[intent];
+        
+        $("#exptTarget").html("Target is: " + '<img class ="inlineShape" src="' + shapePath+ '">' );
+
         $("#say").show();
         HIDE_INSTRUCTIONS();
         //CREATE_SIGNAL_BUTTONS();

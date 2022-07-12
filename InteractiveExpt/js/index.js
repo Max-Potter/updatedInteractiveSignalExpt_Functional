@@ -22,7 +22,8 @@ var instr, subj, tryMove, trySay, expt; //practice
 
 var idPairs = {"123":"321","321":"123"};
 var startingRoles = {};
-var partnersAction = {}
+var partnersAction = {};
+var partnersLists = {};
 
 
 var trial;
