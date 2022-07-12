@@ -102,6 +102,14 @@ class trialObject {
     }
 
     next(){
+        if(this.currentRole == "signaller"){
+            this.currentRole = "receiver";
+            console.log("role: ", this.currentRole);
+        }
+        else{
+            this.currentRole = "signaller";
+            console.log("role: ", this.currentRole);
+        }
         if(this.isTryMove || this.isTrySay) {
             $(".tryExptInstr").show();
             this.end();
@@ -427,7 +435,7 @@ function timeLimitReached(obj){
     RECORD_RECEIVER_ACHIEVED(obj, "timedout");
     UPDATE_RESULT_IN_OBJ(obj, 0);
     //console.log("init");
-    obj.partnersAction[obj.sonaID] = "timeout";
+    partnersAction[obj.sonaID] = "timeout";
     SHOW_WIN_RESULT_BOX_FOR_SAY(obj, false);
     //console.log("init 2");
     obj.step = 0;
