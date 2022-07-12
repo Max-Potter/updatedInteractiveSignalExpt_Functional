@@ -707,12 +707,20 @@ function CREATE_EXPT_BUTTONS(obj) {
             SIGNALER_AUTO_MOVE(obj)
         });
         $("#sanityCheckResultBut").click(function(){
-            console.log("press1");
-            NEXT_TRIAL(obj)
+            this.disabled = true;
+            console.log("pressA");
+            this.textContent = "Waiting for partner ...";
+
+            partnersAction[obj.sonaID] = "next";
+            waitForPartnerNext(this, obj, "next", "!=", 1);
         });
         $("#sanityCheckResultButDo").click(function(){
-            console.log("press1");
-            NEXT_TRIAL(obj)
+            this.disabled = true;
+            console.log("pressADo");
+            this.textContent = "Waiting for partner ...";
+
+            partnersAction[obj.sonaID] = "next";
+            waitForPartnerNext(this, obj, "next", "!=", 1);
         });
     }
     // else if (obj.isPracTrial) {
@@ -725,12 +733,20 @@ function CREATE_EXPT_BUTTONS(obj) {
             SIGNALER_AUTO_MOVE(obj)
         });
         $("#resultBut").click(function(){
-            console.log("press1");
-            NEXT_TRIAL(obj)
+            this.disabled = true;
+            console.log("pressB");
+            this.textContent = "Waiting for partner ...";
+
+            partnersAction[obj.sonaID] = "next";
+            waitForPartnerNext(this, obj, "next", "!=", 1);
         });
         $("#resultButDo").click(function(){
-            console.log("press1");
-            NEXT_TRIAL(obj)
+            this.disabled = true;
+            console.log("pressBDo");
+            this.textContent = "Waiting for partner ...";
+
+            partnersAction[obj.sonaID] = "next";
+            waitForPartnerNext(this, obj, "next", "!=", 1);
         });
     }
 
@@ -790,36 +806,8 @@ function CREATE_SIGNAL_BUTTONS(obj, availableSignals) {
                     $("#instruction_2").show();
                     console.log(partnersAction);
 
-                    //$("#instrText").show();
-                    //$("#instrNextBut").show();
-
-                    var i = 1
-
-                    //mpotter 
-                    //BUTTONS FOR SIGNALLER WALK
                     cancelTimeout();
-
-                    while(partnersAction[obj.partner] == "wait"){
-                        console.log("waiting");
-                        i = i + 1;
-                        if(i == 10){
-                            partnersAction[obj.partner] = [2,0];
-                        }
-                    }
-
-                    if(partnersAction[obj.partner] != "timeout"){
-
-                    PSEUDO_RECEIVER_WALK_TWO(obj, partnersAction[obj.partner]);
-                    }
-                    else{
-                        timeLimitedReached(obj)
-                    }
-                    
-
-
-
-
-                    //RECEIVER_WALK_TWO(obj,$(this).html());
+                    waitForReceiverAction(this, obj, "wait", "==", 12);
                 
                 });
                     //RECEIVER_WALK_TWO(obj,$(this).html())});
@@ -888,25 +876,13 @@ function CREATE_SIGNAL_BUTTONS(obj, availableSignals) {
                     //$("#instrText").show();
                     //$("#instrNextBut").show();
 
-                    var i = 1
+                    //var i = 1
 
                     //mpotter 
                     //BUTTONS FOR SIGNALLER WALK
                     cancelTimeout();
 
-                    while(partnersAction[obj.partner] == "wait"){
-                        console.log("waiting");
-                        i = i + 1;
-                        if(i == 10){
-                            partnersAction[obj.partner] = [2,0];
-                        }
-                    }
-
-                    PSEUDO_RECEIVER_WALK_TWO(obj, partnersAction[obj.partner]);
-
-                    
-
-                    //RECEIVER_WALK_TWO(obj,$(this).html())
+                    waitForReceiverAction(this, obj, "wait", "==", 12);
                 });
             for (var j = 0; j < availableSignals.length; j++) {
                 if (availableSignals[j] == $("#butOption" + i).html()) {
@@ -1186,7 +1162,10 @@ function SHOW_WIN_RESULT_BOX_FOR_SAY(obj,win) {
             $(".tryResultText").html("<img class='inlineShape' src='' + SHAPE_DIR + 'receiver.png'/>" + " lands on " +  "<img class='inlineShape' style='background-color: #f9f9f9; padding: 2px;' src='" + landedItem + "'>" + "<br><br>Congratulations! You reached the target!");
         } else {
             //console.log("1");
-            if(obj.currentRole == "signaller"){
+            if(partnersAction[obj.sonaID] == "timeout" && partnersAction[obj.partner] == "timeout"){
+                $("#sanityCheckResultText").html("Your partner did not answer within the time limit. Proceed to the next trial.");
+            }
+            else if(obj.currentRole == "signaller"){
                 $("#sanityCheckResultText").html("You did not answer within the time limit. Please send a signal within 10 seconds!");
                 }
             else{
@@ -1243,8 +1222,11 @@ function SHOW_WIN_RESULT_BOX_FOR_SAY(obj,win) {
             reward = REWARD;
         } else {
             //console.log("2");
-            if(obj.currentRole == "signaller"){
-            $("#sanityCheckResultText").html("You did not answer within the time limit. Please send a signal within 10 seconds!");
+            if(partnersAction[obj.sonaID] == "timeout" && partnersAction[obj.partner] == "timeout"){
+                $("#sanityCheckResultText").html("Your partner did not answer within the time limit. Proceed to the next trial.");
+            }
+            else if(obj.currentRole == "signaller"){
+                $("#sanityCheckResultText").html("You did not answer within the time limit. Please send a signal within 10 seconds!");
             }
             else{
                 $("#sanityCheckResultText").html("You did not answer within the time limit. Please respond within 10 seconds of the signal being sent!");
@@ -1315,7 +1297,10 @@ function SHOW_WIN_RESULT_BOX_FOR_SAY(obj,win) {
             reward = REWARD;
         } else {
             //console.log("3");
-            if(obj.currentRole == "signaller"){
+            if(partnersAction[obj.sonaID] == "timeout" && partnersAction[obj.partner] == "timeout"){
+                $("#resultText").html("Your partner did not answer within the time limit. Proceed to the next trial.");
+            }
+            else if(obj.currentRole == "signaller"){
                 $("#resultText").html("You did not answer within the time limit. Please send a signal within 10 seconds!");
                 }
             else{
@@ -1383,7 +1368,10 @@ function SHOW_WIN_RESULT_BOX_FOR_SAY(obj,win) {
         } else {
             //console.log("2");
             //console.log(obj.isExptTrial);
-            if(obj.currentRole == "signaller"){
+            if(partnersAction[obj.sonaID] == "timeout" && partnersAction[obj.partner] == "timeout"){
+                $("#sanityCheckResultText").html("Your partner did not answer within the time limit. Proceed to the next trial.");
+            }
+            else if(obj.currentRole == "signaller"){
                 $("#sanityCheckResultText").html("You did not answer within the time limit. Please send a signal within 10 seconds!");
                 }
             else{
@@ -1393,7 +1381,10 @@ function SHOW_WIN_RESULT_BOX_FOR_SAY(obj,win) {
             var toHide2 = document.getElementById("sanityLikertScale");
             toHide.style.display = "none";
             toHide2.style.display = "none";
-            if(obj.currentRole == "signaller"){
+            if(partnersAction[obj.sonaID] == "timeout" && partnersAction[obj.partner] == "timeout"){
+                $("#resultText").html("Your partner did not answer within the time limit. Proceed to the next trial.");
+            }
+            else if(obj.currentRole == "signaller"){
                 $("#resultText").html("You did not answer within the time limit. Please send a signal within 10 seconds!");
                 }
             else{

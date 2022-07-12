@@ -183,44 +183,7 @@ class trialObject {
             
             
             
-            var signal = this.inputData[this.randomizedTrialList[this.trialIndex]]["predSignalNoActionUtility"];
-            //console.log("prechange");
-            //console.log(signal);
-
-            var i = 1; 
-            while(partnersAction[this.partner] == "wait"){
-                console.log("waiting");
-                i = i + 1;
-                if(i == 10){
-                    partnersAction[this.partner] = "green";
-                    }
-            }
-            //mpotter
-        
-            signal = partnersAction[this.partner];
-
-
-
-
-            var waitoutTime = SIMULATED_SIGNALER_DECISION_TIME*1000;
-
-            //FORMAT CHANGE
-            setTimeout(CHANGE_INSTRUCTION, waitoutTime + randExpo * 300, signal);
-            
-            
-            if(signal == "do"){
-                setTimeout(SIGNALER_WALK_TWO,waitoutTime + randExpo*300,sanityCheck);
-                RECORD_SIMULATED_SIG_DECISION_TIME(this, (waitoutTime + randExpo*300)/1000);
-            }
-            else{
-                setTimeout(ENABLE_GRID_BUTTONS,waitoutTime + randExpo*400,buttonDict);
-                RECORD_SIMULATED_SIG_DECISION_TIME(this, (waitoutTime + randExpo*400)/1000);
-                setTimeout(setResponseConstraint, waitoutTime + randExpo*400,this);
-            }
-
-            //ENABLE_GRID_BUTTONS(buttonDict);
-            $("#sanityCheckInstr").show();
-            this.move();
+                waitForSignallerAction(buttonDict, this, "wait", "==",21);
         }
         
         }
@@ -289,34 +252,7 @@ class trialObject {
 
 
 
-                var signal = this.inputData[this.randomizedTrialList[this.trialIndex]]["predSignalNoActionUtility"];
-                //console.log(signal);
-                var i = 1;
-                while(partnersAction[this.partner] == "wait"){
-                    console.log("waiting");
-                    i = i + 1;
-                    if(i == 10){
-                        partnersAction[this.partner] = "green";
-                        }
-                }
-                //mpotter
-            
-                signal = partnersAction[this.partner];
-
-
-                var waitoutTime = SIMULATED_SIGNALER_DECISION_TIME*1000;
-                setTimeout(CHANGE_INSTRUCTION_EXPT, waitoutTime + randExpo * 300, signal);
-                if(signal == "do"){
-                    setTimeout(SIGNALER_WALK_TWO,waitoutTime + randExpo*300,expt);
-                    RECORD_SIMULATED_SIG_DECISION_TIME(this, (waitoutTime + randExpo*300)/1000);
-                }
-                else{
-                    setTimeout(ENABLE_GRID_BUTTONS,waitoutTime + randExpo*400,buttonDict);
-                    RECORD_SIMULATED_SIG_DECISION_TIME(this, (waitoutTime + randExpo*400)/1000);
-                    setTimeout(setResponseConstraint, waitoutTime + randExpo*400,this);
-                }
-                $("#exptInstr").show();
-                this.move();
+                    waitForSignallerAction(buttonDict, this, "wait", "==", 21);
             }
             }
         }
@@ -449,6 +385,8 @@ function setResponseConstraint(obj){
     //console.log(timeoutId);
     //console.log("pt 2");
 }
+
+
 
 
 function CONVERT_BARRIER_STRING_TO_LIST_OF_ARRAY_COORD(str){
@@ -1538,6 +1476,221 @@ function TRY_SAY_GAMEBOARD_SETUP() {
     $("#trySayPage").show();
 }
 
+//mpotter
+//This function works like a while loop that does:
+// while partnersAction[obj.partner] <equalityCheck> b, wait
+// Once equalityCheck is broken, it calls NEXT_TRIAL
+// This function waits for your partner to be ready before going next
+
+function waitForPartnerNext(button, obj,b, equalityCheck, bypass){
+    console.log("Waiting for comparison ... ");
+    console.log("bypass: ", bypass);
+    if(bypass > 0){
+        bypass = bypass + 1
+        if(bypass>10){
+            partnersAction[obj.partner] = "next";
+        }
+    }
+    
+    if(equalityCheck == "=="){
+        if(partnersAction[obj.partner]!=b){
+            button.textContent = "Next";
+            button.disabled = false;
+            NEXT_TRIAL(obj);
+        }
+        else{
+            setTimeout(waitForPartnerNext,1000,button, obj,b,equalityCheck,bypass);
+        }
+    }
+    else if (equalityCheck == "!="){
+        if(partnersAction[obj.partner]==b){
+            button.textContent = "Next";
+            button.disabled = false;
+            NEXT_TRIAL(obj);
+        }
+        else{
+            setTimeout(waitForPartnerNext,1000,button, obj,b,equalityCheck,bypass);
+        }
+    }
+    else{
+        return false;
+    }
+}
+
+function waitForSignallerAction(buttonDict, obj, b, equalityCheck, bypass){
+    console.log("waiting for Signaller: ");
+    console.log(bypass);
+    if(bypass > 0){
+        bypass = bypass + 1
+        if(bypass == 10){
+            partnersAction[obj.partner] = "green";
+        }
+        if(bypass == 20){
+            partnersAction[obj.partner] = "timeout";
+        }
+        if(bypass == 30){
+            partnersAction[obj.partner] = "do";
+        }
+    } 
+    if(equalityCheck == "=="){
+        if(partnersAction[obj.partner]!=b){
+            if(partnersAction[obj.partner] != "timeout"){
+                var signal = partnersAction[obj.partner];
+                CHANGE_INSTRUCTION(signal);
+                if(signal == "do"){
+                    SIGNALER_WALK_TWO(obj);
+                    RECORD_SIMULATED_SIG_DECISION_TIME(obj, (1)/1000);
+                }
+                else{
+                    ENABLE_GRID_BUTTONS(buttonDict);
+                    setResponseConstraint(obj);
+                    RECORD_SIMULATED_SIG_DECISION_TIME(obj, (1)/1000);
+                }
+                if(obj.isSanityCheck){
+                    $("#sanityCheckInstr").show();
+                }
+                else if(obj.isExptTrial){
+                    $("#exptInstr").show();
+                }
+                obj.move();
+            }
+            else{
+                timeLimitReached(obj);
+            }
+            //button.textContent = "Next";
+            //button.disabled = false;
+            //NEXT_TRIAL(obj);
+        }
+        else{
+            setTimeout(waitForSignallerAction,1000,buttonDict, obj,b,equalityCheck,bypass);
+        }
+    }
+    else if (equalityCheck == "!="){
+        if(partnersAction[obj.partner]==b){
+            if(partnersAction[obj.partner] != "timeout"){
+                var signal = partnersAction[obj.partner];
+                CHANGE_INSTRUCTION(signal);
+                if(signal == "do"){
+                    SIGNALER_WALK_TWO(obj);
+                    RECORD_SIMULATED_SIG_DECISION_TIME(obj, (1)/1000);
+                }
+                else{
+                    ENABLE_GRID_BUTTONS(buttonDict);
+                    setResponseConstraint(obj);
+                    RECORD_SIMULATED_SIG_DECISION_TIME(obj, (1)/1000);
+                }
+                if(obj.isSanityCheck){
+                    $("#sanityCheckInstr").show();
+                }
+                else if(obj.isExptTrial){
+                    $("#exptInstr").show();
+                }
+                obj.move();
+            }
+            else{
+                timeLimitReached(obj);
+            }
+            //button.textContent = "Next";
+            //button.disabled = false;
+            //NEXT_TRIAL(obj);
+        }
+        else{
+            setTimeout(waitForSignallerAction,1000,buttonDict, obj,b,equalityCheck,bypass);
+        }
+    }
+    else{
+        return false;
+    }
+
+
+}
+
+function waitForReceiverAction(button, obj, b, equalityCheck, bypass){
+    console.log("waiting for partner action ... ");
+    console.log("bypass: ", bypass);
+    if(bypass > 0){
+        bypass = bypass + 1
+        if(bypass == 11){
+            partnersAction[obj.partner] = "20";
+        }
+        if(bypass == 22){
+            partnersAction[obj.partner] = "timeout";
+        }
+    }
+    
+    if(equalityCheck == "=="){
+        if(partnersAction[obj.partner]!=b){
+            if(partnersAction[obj.partner] != "timeout"){
+                PSEUDO_RECEIVER_WALK_TWO(obj, partnersAction[obj.partner]);
+            }
+            else{
+                timeLimitReached(obj);
+            }
+            //button.textContent = "Next";
+            button.disabled = false;
+            //NEXT_TRIAL(obj);
+        }
+        else{
+            setTimeout(waitForReceiverAction,1000,button, obj,b,equalityCheck,bypass);
+        }
+    }
+    else if (equalityCheck == "!="){
+        if(partnersAction[obj.partner]==b){
+            if(partnersAction[obj.partner] != "timeout"){
+                PSEUDO_RECEIVER_WALK_TWO(obj, partnersAction[obj.partner]);
+            }
+            else{
+                timeLimitReached(obj);
+            }
+            //button.textContent = "Next";
+            button.disabled = false;
+            //NEXT_TRIAL(obj);
+        }
+        else{
+            setTimeout(waitForReceiverAction,1000,button, obj,b,equalityCheck,bypass);
+        }
+    }
+    else{
+        return false;
+    }
+}
+
+function testSleep(){
+    var sleep = (delay) => new Promise
+}
+
+
+
+async function sleepUntilComparison(obj,b, equalityCheck, bypass){
+    console.log("Waiting for comparison ... ");
+    if(bypass > 0){
+        bypass = bypass + 1
+        if(bypass>10){
+            return true;
+        }
+    }
+    
+    if(equalityCheck == "=="){
+        if(partnersAction[obj.partner]==b){
+            return true;
+        }
+        else{
+            await new Promise(r => setTimeout(sleepUntilComparison,500,obj,b,equalityCheck,bypass));
+            //setTimeout(sleepUntilComparison,500,obj,b,equalityCheck,bypass);
+        }
+    }
+    else if (equalityCheck == "!="){
+        if(partnersAction[obj.partner]!=b){
+            return true;
+        }
+        else{
+            await new Promise(r => setTimeout(sleepUntilComparison,500,obj,b,equalityCheck,bypass));
+        }
+    }
+    else{
+        return true;
+    }
+}
 // function TRY_MOVE() {
 //     tryMove.isTryMove = true;
 //     tryMove.signalerMoved = false;
@@ -1744,42 +1897,7 @@ function START_SANITY_CHECK_TRIAL() {
     //
     //console.log(sanityCheck.trialIndex);
     //var signal = sanityCheck.inputData[sanityCheck.trialIndex]["predSignalNoActionUtility"];
-    var signal = sanityCheck.inputData[sanityCheck.randomizedTrialList[sanityCheck.trialIndex]]["predSignalNoActionUtility"];
-    var i = 1;
-
-    while(partnersAction[sanityCheck.partner] == "wait"){
-        console.log("waiting");
-        i = i + 1;
-        if(i == 10){
-            partnersAction[sanityCheck.partner] = "green";
-            }
-    }
-    //mpotter
-
-    signal = partnersAction[sanityCheck.partner];
-    
-    //console.log(newsignal);
-    //
-    //console.log("prechange");
-    //console.log(signal);
-    //console.log(sanityCheck.inputData[sanityCheck.randomizedTrialList[sanityCheck.trialIndex]]);
-    //var signal = "red";
-    var waitoutTime = SIMULATED_SIGNALER_DECISION_TIME*1000;
-    setTimeout(CHANGE_INSTRUCTION, waitoutTime + randExpo * 300, signal);
-    if(signal == "do"){
-        setTimeout(SIGNALER_WALK_TWO,waitoutTime + randExpo*300,sanityCheck);
-        RECORD_SIMULATED_SIG_DECISION_TIME(sanityCheck, (waitoutTime + randExpo*300)/1000);
-    }
-    else{
-        setTimeout(ENABLE_GRID_BUTTONS,waitoutTime + randExpo*400,buttonDict);
-        RECORD_SIMULATED_SIG_DECISION_TIME(sanityCheck, (waitoutTime + randExpo*400)/1000);
-        setTimeout(setResponseConstraint, waitoutTime + randExpo*400,this);
-    }
-
-
-    //NEED TO DISABLE BUTTONS BEFORE THIS IS CALLED ^ --> RE-ENABLE AFTER THIS IS CALLED
-    //setTimeout(RECEIVER_WALK_AFTER_WAIT, randExpo * 1000, obj, signal);
-    sanityCheck.move();
+        waitForSignallerAction(buttonDict, sanityCheck, "wait", "==",21);
 }
 }
 
@@ -1923,36 +2041,7 @@ function START_EXPT(){
     }
     else{
         $("#say").hide();
-    var signal = expt.inputData[expt.randomizedTrialList[expt.trialIndex]]["predSignalNoActionUtility"];
-    //var signal = "red";
-
-    var i = 1;
-    while(partnersAction[expt.partner] == "wait"){
-        console.log("waiting");
-        i = i + 1;
-        if(i == 10){
-            partnersAction[expt.partner] = "green";
-            }
-    }
-    //mpotter
-
-    signal = partnersAction[expt.partner];
-
-
-    var waitoutTime = SIMULATED_SIGNALER_DECISION_TIME*1000;
-    setTimeout(CHANGE_INSTRUCTION_EXPT, waitoutTime + randExpo * 300, signal);
-    if(signal == "do"){
-        setTimeout(SIGNALER_WALK_TWO,waitoutTime + randExpo*300,expt);
-        RECORD_SIMULATED_SIG_DECISION_TIME(expt, (waitoutTime + randExpo*300)/1000);
-    }
-    else{
-        setTimeout(ENABLE_GRID_BUTTONS,waitoutTime + randExpo*400,buttonDict);
-        RECORD_SIMULATED_SIG_DECISION_TIME(expt, (waitoutTime + randExpo*400)/1000);
-        setTimeout(setResponseConstraint, waitoutTime + randExpo*400,this);
-    }
-
-
-    expt.move();
+        waitForSignallerAction(buttonDict, expt, "wait", "==", 21);
 }
 
     expt.startTime = Date.now();
