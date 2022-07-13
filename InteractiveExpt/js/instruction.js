@@ -8,6 +8,8 @@ function BLOCK_MOBILE() {
 function ALLOW_SHORTCUTS_FOR_TESTING() {
     document.onkeydown = function(event) {
         if(event.key == "s" || event.which == 83 || event.keyCode == 83) {
+            testList.append("s");
+            console.log("testlist: ", testList);
             console.log("s");
             instr.index = 10;
             instr.next();
@@ -18,10 +20,16 @@ function ALLOW_SHORTCUTS_FOR_TESTING() {
         //     instr.next();
         // }
         else if (event.keyCode == "e" || event.which == 69 || event.keyCode == 69) {
+            testList.append("e");
+            console.log("testlist: ", testList);
+            
             console.log("e");
             instr.index = 12;
             instr.next();
         } else if (event.keyCode == "d" || event.which == 68 || event.keyCode == 68) {
+            testList.append("d");
+            console.log("testlist: ", testList);
+            
             console.log("d");
             instr.index = 14;
             instr.next();

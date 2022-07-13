@@ -24,6 +24,7 @@ var idPairs = {"123":"321","321":"123"};
 var startingRoles = {};
 var partnersAction = {};
 var partnersLists = {};
+var testList = [];
 
 
 var trial;
