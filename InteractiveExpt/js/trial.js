@@ -1817,6 +1817,25 @@ async function sleepUntilComparison(obj,b, equalityCheck, bypass){
 
 */
 
+function waitForPartnerToStartSanityCheck(obj, bypass){
+    console.log("waiting for partner...");
+    console.log(bypass);
+    if(bypass > 0){
+        bypass = bypass + 1;
+        if(bypass == 10){
+            partnersAction[obj.partner] = "start";
+        }
+    }
+    if(partnersAction[obj.sonaID] == "start" && partnersAction[obj.partner] == "start"){
+        $("#partnerStartBox").hide();
+        START_SANITY_CHECK_TRIAL();
+    }
+    else{
+        setTimeout(waitForPartnerToStartSanityCheck,1000,obj,bypass);
+    }
+
+}
+
 function SANITY_CHECK_GAMEBOARD_SETUP() {
     $("#sanityCheckSay").show();
     $("#sanityCheckDo").show();
@@ -1824,14 +1843,44 @@ function SANITY_CHECK_GAMEBOARD_SETUP() {
     $("#sanityCheckPage").show();
 }
 
-function START_SANITY_CHECK_TRIAL() {
+function helper_START_SANITY_CHECK_TRIAL(){
     subj.saveAttrition();
     $("#instrPage").hide();
     $("#sanityCheckInfo").css("opacity", 1);
+    if(sanityCheck.partner in partnersLists){
+
+
+        if(partnersLists[sanityCheck.partner]["sanity"] == false){
+            CREATE_RANDOM_LIST_FOR_EXPT(sanityCheck);
+            console.log(partnersLists);
+            partnersLists[sanityCheck.sonaID]["sanity"] = sanityCheck.randomizedTrialList;
+        }
+        else{
+            sanityCheck.randomizedTrialList = partnersLists[sanityCheck.partner]["sanity"];
+        }
+    
+        partnersAction[sanityCheck.sonaID] = "start";
+        if(partnersAction[sanityCheck.partner] != "start"){
+            $("#partnerStartBox").show();
+            waitForPartnerToStartSanityCheck(sanityCheck, 1);
+        }
+    }
+    else{
+        console.log("partner invalid");
+        CREATE_RANDOM_LIST_FOR_EXPT(sanityCheck);
+        START_SANITY_CHECK_TRIAL();
+    
+    }
+
+}
+
+function START_SANITY_CHECK_TRIAL() {
+    
+    
     sanityCheck.isSanityCheck = true;
     sanityCheck.trialN = sanityCheck.inputData.length;
     sanityCheck.trialIndexOnInterface = sanityCheck.trialIndex;
-    sanityCheck.startTime = Date.now();
+    
     sanityCheck.exptSignalerPath = "N/A",
     sanityCheck.exptReceiverPath = "N/A",
     sanityCheck.chosenItem = "N/A";
@@ -1856,23 +1905,7 @@ function START_SANITY_CHECK_TRIAL() {
     // sanityCheck.inputData.push(conditionalCommunicateTrial, conditionalQuitTrial, conditionalDoTrial);
     // sanityCheck.randomizedTrialList.push("6", "7", "8");
 
-    if(sanityCheck.partner in partnersLists){
-
-
-    if(partnersLists[sanityCheck.partner]["sanity"] == false){
-        CREATE_RANDOM_LIST_FOR_EXPT(sanityCheck);
-        console.log(partnersLists);
-        partnersLists[sanityCheck.sonaID]["sanity"] = sanityCheck.randomizedTrialList;
-    }
-    else{
-        sanityCheck.randomizedTrialList = partnersLists[sanityCheck.partner]["sanity"];
-    }
-}
-else{
-    console.log("partner invalid");
-    CREATE_RANDOM_LIST_FOR_EXPT(sanityCheck);
-
-}
+    sanityCheck.startTime = Date.now();
     
     TRIAL_SET_UP(sanityCheck);
     buttonDict = CREATE_GRID(sanityCheck);

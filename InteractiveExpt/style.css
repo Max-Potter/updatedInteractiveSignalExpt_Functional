@@ -277,7 +277,7 @@ body {
     width: 450px;
 }
 
-.tryResult, #sanityCheckResult, #practiceResult, #result, #sanityCheckResultDo, #resultDo {
+.tryResult,#partnerStartBox, #sanityCheckResult, #practiceResult, #result, #sanityCheckResultDo, #resultDo {
     display: none;
     position: absolute;
     padding: 20px;
