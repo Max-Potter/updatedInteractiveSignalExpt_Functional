@@ -26,6 +26,9 @@ var partnersAction = {};
 var partnersLists = {};
 var testList = [];
 
+const partnerSheet = "partnerInfoSheet.txt"
+const partnerDir = "partnerData"
+
 
 var trial;
 var reward;

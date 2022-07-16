@@ -89,6 +89,10 @@ class trialObject {
         }
         this.currentRole = startingRoles[this.sonaID];
         this.partner = idPairs[this.sonaID];
+        var sortedIds = sort([this.sonaID, this.partner]);
+
+
+        this.partnerFileName = partnerSheet + String(sortedIds[0]) + String(sortedIds[1]);
         partnersAction[this.sonaID] = "wait";
         partnersLists[this.sonaID] = {"sanity": false, "expt":false}
         
@@ -1826,6 +1830,16 @@ function waitForPartnerToStartSanityCheck(obj, bypass){
             partnersAction[obj.partner] = "start";
         }
     }
+
+    //const fs = require('fs');
+   // const content = String(bypass);
+    //fs.writeFile("hey.txt", content, err => {
+     //   if (err){
+      //      console.error(err);
+      //  }
+    //});
+
+
     if(partnersAction[obj.sonaID] == "start" && partnersAction[obj.partner] == "start"){
         $("#partnerStartBox").hide();
         START_SANITY_CHECK_TRIAL();
@@ -1862,9 +1876,34 @@ function helper_START_SANITY_CHECK_TRIAL(){
         partnersAction[sanityCheck.sonaID] = "start";
         if(partnersAction[sanityCheck.partner] != "start"){
             $("#partnerStartBox").show();
+            var data = LIST_TO_FORMATTED_STRING(["sonaID","action"]);
+            var dataList = [sanityCheck.sonaID, partnersAction[sanityCheck.sonaID]];
+            data += LIST_TO_FORMATTED_STRING(dataList, ";");
+            var postData = {
+                'directory_path': partnerDir,
+                'file_name': sanityCheck.partnerFileName,
+                'data': data
+            };
+            $.ajax({
+                type: 'POST',
+                url: SAVING_SCRIPT,
+                data: postData,
+            });
             waitForPartnerToStartSanityCheck(sanityCheck, 1);
+            fetch(partnerDir + sanityCheck.partnerFileName)
+                .then(response => response.text())
+                .then(textString =>{
+                    console.log(textString);
+                })
         }
     }
+    //https://redis.io/docs/getting-started/installation/install-redis-on-windows/
+        //https://towardsdatascience.com/databases-101-how-to-choose-a-python-database-library-cf19d1157d45
+    
+    //https://stackoverflow.com/questions/40872927/why-cant-i-post-into-sqlite-from-ajax
+    //https://sqlite-utils.datasette.io/en/3.11/python-api.html#insert-replacing-data
+    //https://datatables.net/examples/data_sources/server_side
+    //https://towardsdatascience.com/using-python-flask-and-ajax-to-pass-information-between-the-client-and-server-90670c64d688
     else{
         console.log("partner invalid");
         CREATE_RANDOM_LIST_FOR_EXPT(sanityCheck);
